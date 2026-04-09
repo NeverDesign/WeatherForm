@@ -1,0 +1,41 @@
+// ─── Settings ────────────────────────────────────────────────────────────────
+// Zero CSS output — safe to auto-inject into every SCSS file via Vite's
+// css.preprocessorOptions.scss.additionalData (see vite.config.ts).
+//
+// Do NOT import this file manually in component SCSS files — Vite prepends it.
+// Do NOT add CSS rules here — variables only.
+// ─────────────────────────────────────────────────────────────────────────────
+
+@import "colours";
+@import "sizes";
+
+// ─── Bootstrap variable overrides ────────────────────────────────────────────
+// These must be defined before Bootstrap is imported (in main.scss).
+// Bootstrap reads these at compile time and uses them internally for its
+// utility classes (.btn-primary, .text-success, etc.).
+
+$primary:              $wf-accent;
+$secondary:            $wf-text-muted;
+$danger:               $wf-danger;
+
+$body-bg:              $wf-ink;
+$body-color:           $wf-text-pri;
+$font-family-base:     $font-standard;
+$spacer:               $space;
+$border-color:         $wf-border;
+$border-radius:        6px;
+
+$card-bg:              $wf-base;
+$card-border-color:    $wf-border;
+$card-color:           $wf-text-pri;
+
+$input-bg:             $wf-base;
+$input-border-color:   $wf-border;
+$input-color:          $wf-text-pri;
+$input-placeholder-color: $wf-text-muted;
+$input-focus-border-color: $wf-accent;
+
+$modal-content-bg:           $wf-raised;
+$modal-content-border-color: $wf-border;
+$modal-header-border-color:  $wf-border;
+$modal-footer-border-color:  $wf-border;

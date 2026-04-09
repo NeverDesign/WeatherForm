@@ -1,0 +1,63 @@
+.c-app-header {
+  background: $wf-ink;
+  border-bottom: 1px solid $wf-border;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+
+  &__title {
+    color: $wf-text-pri;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 80px;
+  }
+
+  &__right {
+    justify-content: flex-end;
+  }
+
+  &__icon-btn {
+    width: 32px;
+    height: 32px;
+    background: $wf-base;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: $wf-text-muted;
+    font-size: 14px;
+    padding: 0;
+
+    &:hover {
+      background: $wf-raised;
+    }
+
+    &--profile {
+      border-color: $wf-accent;
+    }
+  }
+
+  &__logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #{$wf-tide-accent} 0deg 120deg,
+      #{$wf-gale-accent} 120deg 240deg,
+      #{$wf-dune-accent} 240deg 360deg
+    );
+  }
+}
