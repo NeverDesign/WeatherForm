@@ -73,20 +73,23 @@ Each element has a base (used for pieces, primary element identity) and a light 
 
 ### Type Scale (reference)
 
-| Level | Family | Size | Weight | Tracking |
-|-------|--------|------|--------|----------|
-| Logo | Cinzel | 36px+ | 900 | 5px |
-| Display | Cinzel | 22px | 700 | 3px |
-| Heading | Cinzel | 15px | 600 | 2px |
-| Section eyebrow | Cinzel | 9–10px | 600 | 2.5px |
-| Body large | DM Sans | 15px | 400 | — |
-| Body | DM Sans | 13px | 400 | — |
-| UI label | DM Sans | 12px | 700 | 0.3px |
-| Caption | DM Sans | 10px | 500 | — |
+| Level | Family | Size | Weight | Tracking | Line height | Color |
+|-------|--------|------|--------|----------|-------------|-------|
+| Logo | Cinzel | 36px+ | 900 | 5px | 1 | Accent (`#F7B731`) |
+| Display | Cinzel | 22px | 700 | 3px | — | Primary |
+| Heading | Cinzel | 15px | 600 | 2px | — | Primary |
+| Section eyebrow | Cinzel | 10px | 600 | 2.5px | — | Muted |
+| Card eyebrow | Cinzel | 8px | 600 | 2px | — | Muted |
+| Body large | DM Sans | 15px | 400 | — | 1.65 | Secondary |
+| Body | DM Sans | 13px | 400 | — | 1.6 | Secondary |
+| UI label | DM Sans | 12px | 700 | 0.3px | — | Primary |
+| Caption | DM Sans | 10px | 500 | — | — | Muted |
 
 ### Usage notes
 - Cinzel is always uppercase. Do not use sentence case with Cinzel.
-- Cinzel at small sizes (eyebrows, section labels) should be used sparingly — it carries visual weight even at 9px.
+- Cinzel at small sizes (eyebrows, section labels) should be used sparingly — it carries visual weight even at 8px.
+- Two eyebrow sizes: **Section eyebrow** (10px / 2.5px) for page-level section headers; **Card eyebrow** (8px / 2px) for in-card context labels (e.g. "Tide vs Dune").
+- Body copy (body-lg and body) defaults to Secondary text (`#A3BDC0`), not Primary. Use Primary only where high contrast is required (headings, labels, interactive elements).
 - DM Sans handles all running text, form inputs, button labels, and navigation links.
 - The pairing creates a deliberate contrast: Cinzel establishes the world's identity, DM Sans keeps the interface human and readable.
 
