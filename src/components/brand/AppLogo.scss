@@ -1,0 +1,76 @@
+.c-app-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-sm;
+
+  // ── Emblem ────────────────────────────────────────────────────────────────
+
+  &__emblem {
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__arc {
+    stroke: $wf-ink;
+    stroke-width: 2;
+    stroke-linejoin: round;
+
+    &--tide { fill: $wf-tide-base; }
+    &--gale { fill: $wf-gale-base; }
+    &--dune { fill: $wf-dune-base; }
+  }
+
+  &__hub {
+    fill: $wf-ink;
+  }
+
+  // ── Wordmark ──────────────────────────────────────────────────────────────
+
+  &__wordmark {
+    display: block;
+    color: $wf-accent;
+    font-family: $font-brand;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: $tracking-logo;
+    line-height: 1;
+  }
+
+  // ── Size modifiers ────────────────────────────────────────────────────────
+  // Spec sizes: sm emblem=32px/wordmark=10px, md emblem=48px/wordmark=14px,
+  //             lg emblem=80px/wordmark=22px
+  // Token approximations used: sm wordmark → $font-size-xs (12px),
+  //                             lg wordmark → $font-size-xl (24px)
+
+  &--sm {
+    .c-app-logo__emblem {
+      width: $space-lg;   // 32px
+      height: $space-lg;
+    }
+    .c-app-logo__wordmark {
+      font-size: $font-size-xs;  // 12px (spec: 10px)
+    }
+  }
+
+  &--md {
+    .c-app-logo__emblem {
+      width: $space-xl;   // 48px
+      height: $space-xl;
+    }
+    .c-app-logo__wordmark {
+      font-size: $font-size-sm;  // 14px
+    }
+  }
+
+  &--lg {
+    .c-app-logo__emblem {
+      width: $space-xxxl;  // 80px
+      height: $space-xxxl;
+    }
+    .c-app-logo__wordmark {
+      font-size: $font-size-xl;  // 24px (spec: 22px)
+    }
+  }
+}
