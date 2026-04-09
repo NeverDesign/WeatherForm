@@ -1,0 +1,235 @@
+.p-auth {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  // ── Brand panel ───────────────────────────────────────────────────────────
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-sm;
+    padding: $space-lg $space-md;
+    background-color: $wf-base;
+  }
+
+  &__tagline {
+    color: $wf-text-muted;
+    font-size: $font-size-sm;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__chips {
+    display: flex;
+    flex-direction: row;
+    gap: $space-sm;
+    margin-top: $space-xs;
+  }
+
+  &__chip {
+    display: inline-block;
+    padding: $space-xs $space-sm;
+    border-radius: $space-xs;
+    font-size: $font-size-xxs;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    &--tide {
+      background-color: $wf-tide-bg;
+      color: $wf-tide-accent;
+    }
+
+    &--gale {
+      background-color: $wf-gale-bg;
+      color: $wf-gale-accent;
+    }
+
+    &--dune {
+      background-color: $wf-dune-bg;
+      color: $wf-dune-accent;
+    }
+  }
+
+  // ── Form panel ────────────────────────────────────────────────────────────
+
+  &__form-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: $space-md;
+    background-color: $wf-base;
+
+    > .c-app-logo {
+      align-self: center;
+      margin-bottom: $space-sm;
+    }
+  }
+
+  // ── Tab toggle ────────────────────────────────────────────────────────────
+
+  &__tabs {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid $wf-border;
+    border-radius: $space-xs;
+    overflow: hidden;
+    margin-bottom: $space-md;
+  }
+
+  &__tab {
+    flex: 1;
+    padding: $space-sm $space-xs;
+    background-color: transparent;
+    border: none;
+    color: $wf-text-muted;
+    font-family: $font-brand;
+    font-size: $font-size-xxs;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: $tracking-eyebrow-sm;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &--active {
+      background-color: $wf-panel;
+      color: $wf-accent;
+      font-weight: 700;
+    }
+  }
+
+  // ── Form ──────────────────────────────────────────────────────────────────
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  // ── Field ─────────────────────────────────────────────────────────────────
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+
+    &--error {
+      .p-auth__input {
+        border-color: $wf-danger;
+      }
+    }
+  }
+
+  &__label {
+    color: $wf-text-muted;
+    font-size: $font-size-xxs;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__input {
+    background-color: $wf-base;
+    border: 1px solid $wf-border;
+    border-radius: $space-xs;
+    color: $wf-text-pri;
+    font-size: $font-size-sm;
+    padding: $space-xs $space-sm;
+    outline: none;
+    transition: border-color 0.15s ease;
+    width: 100%;
+
+    &::placeholder {
+      color: $wf-text-muted;
+    }
+
+    &:focus {
+      border-color: $wf-accent;
+    }
+
+    &--readonly {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__error {
+    color: $wf-danger;
+    font-size: $font-size-xs;
+  }
+
+  &__hint {
+    color: $wf-text-muted;
+    font-size: $font-size-xs;
+  }
+
+  &__api-error {
+    color: $wf-danger;
+    font-size: $font-size-xs;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__submit {
+    width: 100%;
+    background-color: $wf-accent;
+    color: $wf-ink;
+    font-weight: 700;
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: $space-sm $space-md;
+    border: none;
+    border-radius: $space-xs;
+    cursor: pointer;
+    margin-top: $space-xs;
+    transition: opacity 0.15s ease;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__forgot {
+    color: $wf-accent;
+    font-size: $font-size-xs;
+    text-align: right;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+
+    &__brand {
+      width: 240px;
+      flex-shrink: 0;
+      min-height: 100vh;
+      background-color: $wf-ink;
+      justify-content: center;
+      padding: $space-xl $space-md;
+    }
+
+    // Hide tagline and chips on desktop (left panel shows AppLogo only)
+    &__tagline,
+    &__chips {
+      display: none;
+    }
+
+    &__form-panel {
+      justify-content: center;
+      padding: $space-xl $space-xxl;
+      max-width: $container-width-narrow;
+    }
+  }
+}
