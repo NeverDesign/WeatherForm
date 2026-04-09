@@ -1,0 +1,37 @@
+// ─── Spacing ─────────────────────────────────────────────────────────────────
+$space:       16px;
+$space-xs:    4px;
+$space-sm:    8px;
+$space-md:    20px;
+$space-lg:    32px;
+$space-xl:    48px;
+$space-xxl:   64px;
+$space-xxxl:  80px;
+
+// ─── Font sizes ──────────────────────────────────────────────────────────────
+$font-size-xxs:   0.5rem;      //  8px  — compact game-UI labels, tags, chips
+$font-size-xs:    0.75rem;   // 12px
+$font-size-sm:    0.875rem;  // 14px
+$font-size-std:   1rem;      // 16px
+$font-size-md:    1.125rem;  // 18px
+$font-size-lg:    1.25rem;   // 20px
+$font-size-xl:    1.5rem;    // 24px
+$font-size-xxl:   2rem;      // 32px
+$font-size-xxxl:  2.5rem;    // 40px
+
+// ─── Font stacks ─────────────────────────────────────────────────────────────
+$font-standard: 'DM Sans', system-ui, -apple-system, sans-serif;
+$font-brand:    'Cinzel', serif;
+$font-serif:    Georgia, serif;
+$font-mono:     'Fira Code', 'Courier New', monospace;
+
+// ─── Letter-spacing ──────────────────────────────────────────────────────────
+$tracking-logo:       5px;
+$tracking-display:    3px;
+$tracking-heading:    2px;
+$tracking-eyebrow:    2.5px;
+$tracking-eyebrow-sm: 2px;
+
+// ─── Layout ──────────────────────────────────────────────────────────────────
+$container-width:        1200px;
+$container-width-narrow: 700px;

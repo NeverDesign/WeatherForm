@@ -1,0 +1,85 @@
+// ─── Typography ──────────────────────────────────────────────────────────────
+// App-level type styles. Bootstrap's reboot handles the baseline reset.
+// Tokens are auto-injected by Vite — no @import needed here.
+// ─────────────────────────────────────────────────────────────────────────────
+
+body {
+  font-family: $font-standard;
+  color: $wf-text-sec;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+// ─── Font stack utilities ─────────────────────────────────────────────────────
+.font-standard { font-family: $font-standard; }
+.font-brand    { font-family: $font-brand; }
+.font-serif    { font-family: $font-serif; }
+.font-mono     { font-family: $font-mono; }
+
+// ─── Font size utilities (supplement Bootstrap's fs- classes) ─────────────────
+.text-xs   { font-size: $font-size-xs; }
+.text-sm   { font-size: $font-size-sm; }
+.text-std  { font-size: $font-size-std; }
+.text-md   { font-size: $font-size-md; }
+.text-lg   { font-size: $font-size-lg; }
+.text-xl   { font-size: $font-size-xl; }
+.text-xxl  { font-size: $font-size-xxl; }
+.text-xxxl { font-size: $font-size-xxxl; }
+
+// ─── Brand type scale (Cinzel) ────────────────────────────────────────────────
+// All Cinzel classes are always uppercase — do not use with sentence-case text.
+
+.wf-wordmark {
+  font-family: $font-brand;
+  font-size: $font-size-xxxl;
+  font-weight: 900;
+  letter-spacing: $tracking-logo;
+  color: $wf-accent;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.wf-display {
+  font-family: $font-brand;
+  font-size: $font-size-xxl;
+  font-weight: 700;
+  letter-spacing: $tracking-display;
+  color: $wf-text-pri;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.wf-heading {
+  font-family: $font-brand;
+  font-size: $font-size-lg;
+  font-weight: 600;
+  letter-spacing: $tracking-heading;
+  color: $wf-text-pri;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.wf-eyebrow {
+  font-family: $font-brand;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  letter-spacing: $tracking-eyebrow;
+  color: $wf-text-muted;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.wf-eyebrow-sm {
+  font-family: $font-brand;
+  font-size: $font-size-xxs;
+  font-weight: 600;
+  letter-spacing: $tracking-eyebrow-sm;
+  color: $wf-text-muted;
+  text-transform: uppercase;
+  line-height: 1;
+}
