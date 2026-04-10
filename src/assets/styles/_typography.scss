@@ -4,7 +4,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 body {
-  font-family: $font-standard;
+  font-family: $wf-font-standard;
   color: $wf-text-sec;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,10 +16,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // ─── Font stack utilities ─────────────────────────────────────────────────────
-.font-standard { font-family: $font-standard; }
-.font-brand    { font-family: $font-brand; }
-.font-serif    { font-family: $font-serif; }
-.font-mono     { font-family: $font-mono; }
+.font-standard { font-family: $wf-font-standard; }
+.font-brand    { font-family: $wf-font-accent; }
+.font-serif    { font-family: $wf-font-accent; }
+.font-mono     { font-family: $wf-font-mono; }
 
 // ─── Font size utilities (supplement Bootstrap's fs- classes) ─────────────────
 .text-xs   { font-size: $font-size-xs; }
@@ -31,55 +31,82 @@ h1, h2, h3, h4, h5, h6 {
 .text-xxl  { font-size: $font-size-xxl; }
 .text-xxxl { font-size: $font-size-xxxl; }
 
-// ─── Brand type scale (Cinzel) ────────────────────────────────────────────────
-// All Cinzel classes are always uppercase — do not use with sentence-case text.
+// ─── Semantic type scale ──────────────────────────────────────────────────────
+// All $wf-font-accent classes use text-transform: uppercase.
+// $font-size-xxs and $font-size-xs are reserved for compact game UI.
 
-.wf-wordmark {
-  font-family: $font-brand;
+.wf-type-logo {
+  font-family: $wf-font-accent;
   font-size: $font-size-xxxl;
   font-weight: 900;
   letter-spacing: $tracking-logo;
+  line-height: 1;
   color: $wf-accent;
   text-transform: uppercase;
-  line-height: 1;
 }
 
-.wf-display {
-  font-family: $font-brand;
-  font-size: $font-size-xxl;
+.wf-type-display {
+  font-family: $wf-font-accent;
+  font-size: $font-size-xl;
   font-weight: 700;
   letter-spacing: $tracking-display;
-  color: $wf-text-pri;
-  text-transform: uppercase;
   line-height: 1.1;
-}
-
-.wf-heading {
-  font-family: $font-brand;
-  font-size: $font-size-lg;
-  font-weight: 600;
-  letter-spacing: $tracking-heading;
   color: $wf-text-pri;
   text-transform: uppercase;
-  line-height: 1.2;
 }
 
-.wf-eyebrow {
-  font-family: $font-brand;
+.wf-type-heading {
+  font-family: $wf-font-accent;
   font-size: $font-size-sm;
   font-weight: 600;
-  letter-spacing: $tracking-eyebrow;
-  color: $wf-text-muted;
+  letter-spacing: $tracking-heading;
+  line-height: 1.2;
+  color: $wf-text-pri;
   text-transform: uppercase;
-  line-height: 1;
 }
 
-.wf-eyebrow-sm {
-  font-family: $font-brand;
-  font-size: $font-size-xxs;
+.wf-type-eyebrow {
+  font-family: $wf-font-accent;
+  font-size: $font-size-xs;
   font-weight: 600;
-  letter-spacing: $tracking-eyebrow-sm;
+  letter-spacing: $tracking-eyebrow;
+  line-height: 1;
   color: $wf-text-muted;
   text-transform: uppercase;
-  line-height: 1;
+
+  &--card {
+    font-size: $font-size-xxs;
+    letter-spacing: $tracking-eyebrow-sm;
+  }
+}
+
+.wf-type-body-lg {
+  font-family: $wf-font-standard;
+  font-size: $font-size-sm;
+  font-weight: 400;
+  line-height: 1.65;
+  color: $wf-text-sec;
+}
+
+.wf-type-body {
+  font-family: $wf-font-standard;
+  font-size: $font-size-sm;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $wf-text-sec;
+}
+
+.wf-type-label {
+  font-family: $wf-font-standard;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: $wf-text-pri;
+}
+
+.wf-type-caption {
+  font-family: $wf-font-standard;
+  font-size: $font-size-xs;
+  font-weight: 500;
+  color: $wf-text-muted;
 }
