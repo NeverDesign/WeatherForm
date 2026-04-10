@@ -20,10 +20,14 @@ $font-size-xxl:   2rem;      // 32px
 $font-size-xxxl:  2.5rem;    // 40px
 
 // ─── Font stacks ─────────────────────────────────────────────────────────────
-$font-standard: 'DM Sans', system-ui, -apple-system, sans-serif;
-$font-brand:    'Cinzel', serif;
-$font-serif:    Georgia, serif;
-$font-mono:     'Fira Code', 'Courier New', monospace;
+$wf-font-standard: 'DM Sans', system-ui, -apple-system, sans-serif;
+$wf-font-accent:   'Cinzel', Georgia, serif;
+$wf-font-mono:     'Fira Code', 'Courier New', monospace;
+
+$font-standard: $wf-font-standard;
+$font-brand:    $wf-font-accent;
+$font-serif:    $wf-font-accent;
+$font-mono:     $wf-font-mono;
 
 // ─── Letter-spacing ──────────────────────────────────────────────────────────
 $tracking-logo:       5px;
