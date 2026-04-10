@@ -2,18 +2,7 @@
   <div class="p-auth" data-testid="page-auth">
     <h1 class="visually-hidden">{{ commonContent.appName }}</h1>
 
-    <!-- Top / Left panel: branding -->
-    <div class="p-auth__brand">
-      <AppLogo size="md" />
-      <p class="p-auth__tagline">{{ splashContent.tagline }}</p>
-      <div class="p-auth__chips">
-        <span class="p-auth__chip p-auth__chip--tide">{{ commonContent.elements.tide }}</span>
-        <span class="p-auth__chip p-auth__chip--gale">{{ commonContent.elements.gale }}</span>
-        <span class="p-auth__chip p-auth__chip--dune">{{ commonContent.elements.dune }}</span>
-      </div>
-    </div>
-
-    <!-- Bottom / Right panel: form -->
+    <!-- Form panel -->
     <div class="p-auth__form-panel">
 
       <AppLogo size="sm" />
@@ -133,7 +122,7 @@ import { useRouter } from 'vue-router'
 import { ROUTES } from '@/types'
 import { useAuthStore } from '@/stores/useAuthStore'
 import type { LoginCredentials, RegisterCredentials } from '@/types/auth'
-import { authContent, commonContent, splashContent, errorContent } from '@/content'
+import { authContent, commonContent, errorContent } from '@/content'
 import AppLogo from '@/components/brand/AppLogo.vue'
 
 const router = useRouter()

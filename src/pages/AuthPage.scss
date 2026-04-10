@@ -2,70 +2,22 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
-  // ── Brand panel ───────────────────────────────────────────────────────────
-
-  &__brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: $space-sm;
-    padding: $space-lg $space-md;
-    background-color: $wf-base;
-  }
-
-  &__tagline {
-    color: $wf-text-muted;
-    font-size: $font-size-sm;
-    margin: 0;
-    text-align: center;
-  }
-
-  &__chips {
-    display: flex;
-    flex-direction: row;
-    gap: $space-sm;
-    margin-top: $space-xs;
-  }
-
-  &__chip {
-    display: inline-block;
-    padding: $space-xs $space-sm;
-    border-radius: $space-xs;
-    font-size: $font-size-xxs;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-
-    &--tide {
-      background-color: $wf-tide-bg;
-      color: $wf-tide-accent;
-    }
-
-    &--gale {
-      background-color: $wf-gale-bg;
-      color: $wf-gale-accent;
-    }
-
-    &--dune {
-      background-color: $wf-dune-bg;
-      color: $wf-dune-accent;
-    }
-  }
+  align-items: center;
+  justify-content: center;
+  padding: $space-md;
 
   // ── Form panel ────────────────────────────────────────────────────────────
 
   &__form-panel {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    padding: $space-md;
-    background-color: $wf-base;
+    width: 100%;
+    max-width: $container-width-narrow;
+    padding: $space-xl $space-md;
 
     > .c-app-logo {
       align-self: center;
-      margin-bottom: $space-sm;
+      margin-bottom: $space-xxl;
     }
   }
 
@@ -185,7 +137,8 @@
     border: none;
     border-radius: $space-xs;
     cursor: pointer;
-    margin-top: $space-xs;
+    margin-top: $space-md;
+    margin-bottom: $space-sm;
     transition: opacity 0.15s ease;
 
     &:disabled {
@@ -197,7 +150,7 @@
   &__forgot {
     color: $wf-accent;
     font-size: $font-size-xs;
-    text-align: right;
+    text-align: center;
     text-decoration: none;
     display: block;
 
@@ -209,27 +162,8 @@
   // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
 
   @media (min-width: 768px) {
-    flex-direction: row;
-
-    &__brand {
-      width: 240px;
-      flex-shrink: 0;
-      min-height: 100vh;
-      background-color: $wf-ink;
-      justify-content: center;
-      padding: $space-xl $space-md;
-    }
-
-    // Hide tagline and chips on desktop (left panel shows AppLogo only)
-    &__tagline,
-    &__chips {
-      display: none;
-    }
-
     &__form-panel {
-      justify-content: center;
       padding: $space-xl $space-xxl;
-      max-width: $container-width-narrow;
     }
   }
 }
