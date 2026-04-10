@@ -39,7 +39,7 @@
     border: none;
     color: $wf-text-muted;
     font-family: $font-brand;
-    font-size: $font-size-xxs;
+    font-size: $font-size-xs;
     font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
@@ -77,7 +77,7 @@
 
   &__label {
     color: $wf-text-muted;
-    font-size: $font-size-xxs;
+    font-size: $font-size-xs;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -110,17 +110,17 @@
 
   &__error {
     color: $wf-danger;
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
   }
 
   &__hint {
     color: $wf-text-muted;
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
   }
 
   &__api-error {
     color: $wf-danger;
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
     text-align: center;
     margin: 0;
   }
@@ -149,7 +149,7 @@
 
   &__forgot {
     color: $wf-accent;
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
     text-align: center;
     text-decoration: none;
     display: block;
