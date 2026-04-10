@@ -1,6 +1,6 @@
 # Brand System Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Replace the wireframe-era colour tokens, typography, and teal accent with the brand guidelines system (amber accent, warm forest-teal palette, Cinzel + DM Sans), update the two built screens, and bring all 6 stub pages to brand-correct scaffolds.
 
@@ -59,7 +59,7 @@
 **Files:**
 - Modify: `src/assets/styles/_colours.scss`
 
-- [ ] **Step 1: Replace the file contents**
+- [x] **Step 1: Replace the file contents**
 
 ```scss
 // ─── Backgrounds ─────────────────────────────────────────────────────────────
@@ -94,7 +94,7 @@ $wf-dune-accent: #D96728;
 $wf-dune-bg:     #3D1A0A;
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add src/assets/styles/_colours.scss
@@ -109,7 +109,7 @@ git commit -m "feat: replace colour tokens with brand guidelines palette and amb
 - Modify: `src/assets/styles/_settings.scss`
 - Modify: `src/components/AppHeader/AppHeader.scss`
 
-- [ ] **Step 1: Update `_settings.scss` — replace $wf-teal with $wf-accent**
+- [x] **Step 1: Update `_settings.scss` — replace $wf-teal with $wf-accent**
 
 Change only these two lines (leave all other lines unchanged):
 
@@ -167,7 +167,7 @@ $modal-header-border-color:  $wf-border;
 $modal-footer-border-color:  $wf-border;
 ```
 
-- [ ] **Step 2: Update AppHeader.scss — profile button border**
+- [x] **Step 2: Update AppHeader.scss — profile button border**
 
 In `AppHeader.scss`, find the `&--profile` modifier (around line 49) and change `border-color: $wf-teal` to `border-color: $wf-accent`:
 
@@ -177,7 +177,7 @@ In `AppHeader.scss`, find the `&--profile` modifier (around line 49) and change 
 }
 ```
 
-- [ ] **Step 3: Verify no remaining $wf-teal outside the files touched in Tasks 3–6**
+- [x] **Step 3: Verify no remaining $wf-teal outside the files touched in Tasks 3–6**
 
 ```bash
 grep -rn '\$wf-teal' src/assets/styles/ src/components/AppHeader/
@@ -185,7 +185,7 @@ grep -rn '\$wf-teal' src/assets/styles/ src/components/AppHeader/
 
 Expected: no output (zero matches).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/assets/styles/_settings.scss src/components/AppHeader/AppHeader.scss
@@ -199,7 +199,7 @@ git commit -m "feat: update Bootstrap overrides and AppHeader to use amber accen
 **Files:**
 - Modify: `src/assets/styles/_sizes.scss`
 
-- [ ] **Step 1: Update `_sizes.scss`**
+- [x] **Step 1: Update `_sizes.scss`**
 
 Add `$font-brand` after `$font-mono`, and add letter-spacing tokens after the layout section. Also update `$font-standard` to use DM Sans as the primary stack:
 
@@ -243,7 +243,7 @@ $container-width:        1200px;
 $container-width-narrow: 700px;
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add src/assets/styles/_sizes.scss
@@ -257,7 +257,7 @@ git commit -m "feat: add Cinzel font-brand token and letter-spacing tokens"
 **Files:**
 - Modify: `src/assets/styles/_typography.scss`
 
-- [ ] **Step 1: Replace `_typography.scss` contents**
+- [x] **Step 1: Replace `_typography.scss` contents**
 
 ```scss
 // ─── Typography ──────────────────────────────────────────────────────────────
@@ -347,7 +347,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add src/assets/styles/_typography.scss
@@ -361,7 +361,7 @@ git commit -m "feat: add Cinzel brand type scale utility classes"
 **Files:**
 - Modify: `index.html`
 
-- [ ] **Step 1: Add preconnect and font link tags to `<head>`**
+- [x] **Step 1: Add preconnect and font link tags to `<head>`**
 
 ```html
 <!DOCTYPE html>
@@ -381,7 +381,7 @@ git commit -m "feat: add Cinzel brand type scale utility classes"
 </html>
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add index.html
@@ -396,7 +396,7 @@ git commit -m "feat: add Cinzel and DM Sans via Google Fonts"
 - Create: `src/components/brand/AppLogo.test.ts`
 - Modify: `src/components/brand/AppLogo.scss`
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Create `src/components/brand/AppLogo.test.ts`:
 
@@ -428,7 +428,7 @@ describe('AppLogo', () => {
 })
 ```
 
-- [ ] **Step 2: Run tests to confirm the component structure is already correct**
+- [x] **Step 2: Run tests to confirm the component structure is already correct**
 
 ```bash
 npx vitest run src/components/brand/AppLogo.test.ts
@@ -436,7 +436,7 @@ npx vitest run src/components/brand/AppLogo.test.ts
 
 Expected: all 4 tests PASS. `AppLogo.vue` already exists and renders the wordmark with size modifier classes. These tests lock in the existing behaviour so any regression from the SCSS edit is caught.
 
-- [ ] **Step 3: Update `AppLogo.scss` — wordmark colour and font tokens**
+- [x] **Step 3: Update `AppLogo.scss` — wordmark colour and font tokens**
 
 Change the `&__wordmark` block to use brand tokens. Find this block (around line 31–39):
 
@@ -466,7 +466,7 @@ Replace with:
 }
 ```
 
-- [ ] **Step 4: Run tests to verify they still pass**
+- [x] **Step 4: Run tests to verify they still pass**
 
 ```bash
 npx vitest run src/components/brand/AppLogo.test.ts
@@ -474,7 +474,7 @@ npx vitest run src/components/brand/AppLogo.test.ts
 
 Expected: all 4 tests PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/components/brand/AppLogo.test.ts src/components/brand/AppLogo.scss
@@ -490,7 +490,7 @@ git commit -m "feat: update AppLogo wordmark to amber accent and Cinzel brand to
 - Modify: `src/pages/AuthPage.vue`
 - Modify: `src/pages/AuthPage.scss`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `src/pages/AuthPage.test.ts`:
 
@@ -536,7 +536,7 @@ describe('AuthPage', () => {
 })
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 ```bash
 npx vitest run src/pages/AuthPage.test.ts
@@ -544,7 +544,7 @@ npx vitest run src/pages/AuthPage.test.ts
 
 Expected: first test FAIL ("AppLogo not found in form panel") because the logo is currently only in the brand panel. Second test should PASS.
 
-- [ ] **Step 3: Add AppLogo to form panel in `AuthPage.vue`**
+- [x] **Step 3: Add AppLogo to form panel in `AuthPage.vue`**
 
 In `AuthPage.vue`, find the form panel div:
 
@@ -570,7 +570,7 @@ Add `<AppLogo size="sm" />` as the first child of the form panel, before the tab
 
 No other template changes.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 ```bash
 npx vitest run src/pages/AuthPage.test.ts
@@ -578,7 +578,7 @@ npx vitest run src/pages/AuthPage.test.ts
 
 Expected: both tests PASS.
 
-- [ ] **Step 5: Update `AuthPage.scss` — replace all $wf-teal and apply Cinzel to tabs**
+- [x] **Step 5: Update `AuthPage.scss` — replace all $wf-teal and apply Cinzel to tabs**
 
 Four `$wf-teal` references need replacing, plus Cinzel applied to the tab font. Find and make the following changes:
 
@@ -673,7 +673,7 @@ Four `$wf-teal` references need replacing, plus Cinzel applied to the tab font. 
 }
 ```
 
-- [ ] **Step 6: Verify no $wf-teal remains in AuthPage.scss**
+- [x] **Step 6: Verify no $wf-teal remains in AuthPage.scss**
 
 ```bash
 grep -n '\$wf-teal' src/pages/AuthPage.scss
@@ -681,7 +681,7 @@ grep -n '\$wf-teal' src/pages/AuthPage.scss
 
 Expected: no output.
 
-- [ ] **Step 7: Run all tests**
+- [x] **Step 7: Run all tests**
 
 ```bash
 npx vitest run
@@ -689,7 +689,7 @@ npx vitest run
 
 Expected: all tests PASS.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add src/pages/AuthPage.test.ts src/pages/AuthPage.vue src/pages/AuthPage.scss
@@ -709,7 +709,7 @@ git commit -m "feat: add AppLogo to auth form panel and apply amber accent + Cin
 - Create: `src/content/help.ts`
 - Modify: `src/content/index.ts`
 
-- [ ] **Step 1: Create `src/content/gameMenu.ts`**
+- [x] **Step 1: Create `src/content/gameMenu.ts`**
 
 ```ts
 export const gameMenuContent = {
@@ -717,7 +717,7 @@ export const gameMenuContent = {
 } as const
 ```
 
-- [ ] **Step 2: Create `src/content/game.ts`**
+- [x] **Step 2: Create `src/content/game.ts`**
 
 ```ts
 export const gameContent = {
@@ -725,7 +725,7 @@ export const gameContent = {
 } as const
 ```
 
-- [ ] **Step 3: Create `src/content/setManager.ts`**
+- [x] **Step 3: Create `src/content/setManager.ts`**
 
 ```ts
 export const setManagerContent = {
@@ -733,7 +733,7 @@ export const setManagerContent = {
 } as const
 ```
 
-- [ ] **Step 4: Create `src/content/profile.ts`**
+- [x] **Step 4: Create `src/content/profile.ts`**
 
 ```ts
 export const profileContent = {
@@ -741,7 +741,7 @@ export const profileContent = {
 } as const
 ```
 
-- [ ] **Step 5: Create `src/content/friends.ts`**
+- [x] **Step 5: Create `src/content/friends.ts`**
 
 ```ts
 export const friendsContent = {
@@ -749,7 +749,7 @@ export const friendsContent = {
 } as const
 ```
 
-- [ ] **Step 6: Create `src/content/help.ts`**
+- [x] **Step 6: Create `src/content/help.ts`**
 
 ```ts
 export const helpContent = {
@@ -757,7 +757,7 @@ export const helpContent = {
 } as const
 ```
 
-- [ ] **Step 7: Update `src/content/index.ts`**
+- [x] **Step 7: Update `src/content/index.ts`**
 
 ```ts
 export * from './splash'
@@ -773,7 +773,7 @@ export * from './friends'
 export * from './help'
 ```
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add src/content/
@@ -786,7 +786,7 @@ git commit -m "feat: add content files for six stub pages"
 
 **Files (per page):** `.vue`, `.scss`, `.test.ts` × 6
 
-- [ ] **Step 1: Write tests for all 6 stub pages**
+- [x] **Step 1: Write tests for all 6 stub pages**
 
 Create `src/pages/GameMenuPage.test.ts`:
 
@@ -878,7 +878,7 @@ describe('HelpPage', () => {
 })
 ```
 
-- [ ] **Step 2: Run tests to verify they all fail**
+- [x] **Step 2: Run tests to verify they all fail**
 
 ```bash
 npx vitest run src/pages/GameMenuPage.test.ts src/pages/GamePage.test.ts src/pages/SetManagerPage.test.ts src/pages/ProfilePage.test.ts src/pages/FriendsPage.test.ts src/pages/HelpPage.test.ts
@@ -886,7 +886,7 @@ npx vitest run src/pages/GameMenuPage.test.ts src/pages/GamePage.test.ts src/pag
 
 Expected: all 6 tests FAIL — headings not found (stubs have no h1).
 
-- [ ] **Step 3: Replace `GameMenuPage.vue`**
+- [x] **Step 3: Replace `GameMenuPage.vue`**
 
 ```vue
 <script setup lang="ts">
@@ -902,7 +902,7 @@ import { gameMenuContent } from '@/content/gameMenu'
 <style lang="scss" src="./GameMenuPage.scss" />
 ```
 
-- [ ] **Step 4: Replace `GameMenuPage.scss`**
+- [x] **Step 4: Replace `GameMenuPage.scss`**
 
 ```scss
 .p-game-menu {
@@ -912,7 +912,7 @@ import { gameMenuContent } from '@/content/gameMenu'
 }
 ```
 
-- [ ] **Step 5: Replace `GamePage.vue`**
+- [x] **Step 5: Replace `GamePage.vue`**
 
 ```vue
 <script setup lang="ts">
@@ -928,7 +928,7 @@ import { gameContent } from '@/content/game'
 <style lang="scss" src="./GamePage.scss" />
 ```
 
-- [ ] **Step 6: Replace `GamePage.scss`**
+- [x] **Step 6: Replace `GamePage.scss`**
 
 ```scss
 .p-game {
@@ -938,7 +938,7 @@ import { gameContent } from '@/content/game'
 }
 ```
 
-- [ ] **Step 7: Replace `SetManagerPage.vue`**
+- [x] **Step 7: Replace `SetManagerPage.vue`**
 
 ```vue
 <script setup lang="ts">
@@ -954,7 +954,7 @@ import { setManagerContent } from '@/content/setManager'
 <style lang="scss" src="./SetManagerPage.scss" />
 ```
 
-- [ ] **Step 8: Replace `SetManagerPage.scss`**
+- [x] **Step 8: Replace `SetManagerPage.scss`**
 
 ```scss
 .p-set-manager {
@@ -964,7 +964,7 @@ import { setManagerContent } from '@/content/setManager'
 }
 ```
 
-- [ ] **Step 9: Replace `ProfilePage.vue`**
+- [x] **Step 9: Replace `ProfilePage.vue`**
 
 ```vue
 <script setup lang="ts">
@@ -980,7 +980,7 @@ import { profileContent } from '@/content/profile'
 <style lang="scss" src="./ProfilePage.scss" />
 ```
 
-- [ ] **Step 10: Replace `ProfilePage.scss`**
+- [x] **Step 10: Replace `ProfilePage.scss`**
 
 ```scss
 .p-profile {
@@ -990,7 +990,7 @@ import { profileContent } from '@/content/profile'
 }
 ```
 
-- [ ] **Step 11: Replace `FriendsPage.vue`**
+- [x] **Step 11: Replace `FriendsPage.vue`**
 
 ```vue
 <script setup lang="ts">
@@ -1006,7 +1006,7 @@ import { friendsContent } from '@/content/friends'
 <style lang="scss" src="./FriendsPage.scss" />
 ```
 
-- [ ] **Step 12: Replace `FriendsPage.scss`**
+- [x] **Step 12: Replace `FriendsPage.scss`**
 
 ```scss
 .p-friends {
@@ -1016,7 +1016,7 @@ import { friendsContent } from '@/content/friends'
 }
 ```
 
-- [ ] **Step 13: Replace `HelpPage.vue`**
+- [x] **Step 13: Replace `HelpPage.vue`**
 
 ```vue
 <script setup lang="ts">
@@ -1032,7 +1032,7 @@ import { helpContent } from '@/content/help'
 <style lang="scss" src="./HelpPage.scss" />
 ```
 
-- [ ] **Step 14: Replace `HelpPage.scss`**
+- [x] **Step 14: Replace `HelpPage.scss`**
 
 ```scss
 .p-help {
@@ -1042,7 +1042,7 @@ import { helpContent } from '@/content/help'
 }
 ```
 
-- [ ] **Step 15: Run stub tests to verify they pass**
+- [x] **Step 15: Run stub tests to verify they pass**
 
 ```bash
 npx vitest run src/pages/GameMenuPage.test.ts src/pages/GamePage.test.ts src/pages/SetManagerPage.test.ts src/pages/ProfilePage.test.ts src/pages/FriendsPage.test.ts src/pages/HelpPage.test.ts
@@ -1050,7 +1050,7 @@ npx vitest run src/pages/GameMenuPage.test.ts src/pages/GamePage.test.ts src/pag
 
 Expected: all 6 tests PASS.
 
-- [ ] **Step 16: Run all tests**
+- [x] **Step 16: Run all tests**
 
 ```bash
 npx vitest run
@@ -1058,7 +1058,7 @@ npx vitest run
 
 Expected: all tests PASS.
 
-- [ ] **Step 17: Commit**
+- [x] **Step 17: Commit**
 
 ```bash
 git add src/pages/GameMenuPage.vue src/pages/GameMenuPage.scss src/pages/GameMenuPage.test.ts
@@ -1074,7 +1074,7 @@ git commit -m "feat: update stub pages to brand-correct scaffolds with visually-
 
 ## Task 10: Build validation and token audit
 
-- [ ] **Step 1: Run full type check**
+- [x] **Step 1: Run full type check**
 
 ```bash
 npx vue-tsc --noEmit
@@ -1082,7 +1082,7 @@ npx vue-tsc --noEmit
 
 Expected: exits 0, no errors.
 
-- [ ] **Step 2: Run production build**
+- [x] **Step 2: Run production build**
 
 ```bash
 npm run build
@@ -1090,7 +1090,7 @@ npm run build
 
 Expected: exits 0, no errors or warnings about missing tokens.
 
-- [ ] **Step 3: Verify $wf-teal is fully removed**
+- [x] **Step 3: Verify $wf-teal is fully removed**
 
 ```bash
 grep -rn '\$wf-teal' src/
@@ -1098,7 +1098,7 @@ grep -rn '\$wf-teal' src/
 
 Expected: no output (zero matches).
 
-- [ ] **Step 4: Verify no hardcoded hex colours in component SCSS**
+- [x] **Step 4: Verify no hardcoded hex colours in component SCSS**
 
 ```bash
 grep -rn '#[0-9a-fA-F]\{3,6\}\b' src --include="*.scss"
@@ -1106,7 +1106,7 @@ grep -rn '#[0-9a-fA-F]\{3,6\}\b' src --include="*.scss"
 
 Expected: zero matches. Any match is a violation — replace with the appropriate `$wf-*` token.
 
-- [ ] **Step 5: Verify no inline styles in templates**
+- [x] **Step 5: Verify no inline styles in templates**
 
 ```bash
 grep -rn 'style="' src/components --include="*.vue"
@@ -1115,7 +1115,7 @@ grep -rn 'style="' src/pages --include="*.vue"
 
 Expected: zero matches.
 
-- [ ] **Step 6: Run all tests one final time**
+- [x] **Step 6: Run all tests one final time**
 
 ```bash
 npx vitest run
@@ -1123,7 +1123,7 @@ npx vitest run
 
 Expected: all tests PASS.
 
-- [ ] **Step 7: Commit if any fixes were needed in steps 3–5**
+- [x] **Step 7: Commit if any fixes were needed in steps 3–5**
 
 If any violations were found and fixed in steps 3–5, commit them:
 
