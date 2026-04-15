@@ -1,5 +1,219 @@
 .p-set-manager {
-  background: $wf-base;
-  color: $wf-text-pri;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  background-color: $wf-base;
+  color: $wf-text-pri;
+
+  // ── Main content ──────────────────────────────────────────────────────────
+
+  &__main {
+    flex: 1;
+    padding: $space $space-md;
+  }
+
+  // ── Section ───────────────────────────────────────────────────────────────
+
+  &__section {
+    margin-bottom: $space-md;
+  }
+
+  &__section-label {
+    margin-bottom: $space-sm;
+  }
+
+  // ── Element tabs ──────────────────────────────────────────────────────────
+
+  &__element-tabs {
+    display: flex;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__element-tab {
+    flex: 1;
+    padding: $space-sm $space-xs;
+    background-color: transparent;
+    border: none;
+    color: $wf-text-muted;
+    font-family: $font-brand;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: $tracking-eyebrow-sm;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &--active {
+      background-color: $wf-panel;
+
+      &.p-set-manager__element-tab--tide {
+        color: $wf-tide-accent;
+      }
+
+      &.p-set-manager__element-tab--gale {
+        color: $wf-gale-accent;
+      }
+
+      &.p-set-manager__element-tab--dune {
+        color: $wf-dune-accent;
+      }
+    }
+
+    &:not(&--active):hover {
+      background-color: $wf-raised;
+      color: $wf-text-sec;
+    }
+  }
+
+  // ── Ability list ──────────────────────────────────────────────────────────
+
+  &__ability-list {
+    margin-bottom: $space-sm;
+  }
+
+  &__ability-row {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    padding: $space-sm $space-sm;
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    margin-bottom: $space-xs;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__piece-icon {
+    font-size: $font-size-md;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  &__piece-count {
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  &__piece-name {
+    flex: 1;
+  }
+
+  &__piece-ability {
+    color: $wf-text-muted;
+    font-size: $font-size-sm;
+    text-align: right;
+  }
+
+  &__army-total {
+    text-align: right;
+    margin-top: $space-sm;
+    margin-bottom: 0;
+  }
+
+  // ── Save form ─────────────────────────────────────────────────────────────
+
+  &__save-form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__save-label {
+    display: block;
+  }
+
+  &__save-input {
+    background-color: $wf-base;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    color: $wf-text-pri;
+    font-size: $font-size-sm;
+    padding: $space-xs $space-sm;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s ease;
+
+    &::placeholder {
+      color: $wf-text-muted;
+    }
+
+    &:focus {
+      border-color: $wf-accent;
+    }
+  }
+
+  &__save-btn {
+    width: 100%;
+    background-color: $wf-accent;
+    color: $wf-ink;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: $font-size-sm;
+    padding: $space-sm $space-md;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: $wf-accent-hover;
+    }
+  }
+
+  // ── Empty state ───────────────────────────────────────────────────────────
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $space-xl $space-md;
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    text-align: center;
+    gap: $space-sm;
+  }
+
+  &__empty-heading {
+    margin-bottom: 0;
+    color: $wf-text-pri;
+  }
+
+  &__empty-body {
+    margin-bottom: 0;
+    color: $wf-text-sec;
+  }
+
+  // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
+
+  @media (min-width: 768px) {
+    &__main {
+      max-width: $container-width;
+      margin: 0 auto;
+      padding: $space-md $space-lg;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $space-md;
+      align-items: start;
+    }
+
+    &__section:nth-child(1),
+    &__section:nth-child(2),
+    &__section:nth-child(3) {
+      grid-column: 1;
+    }
+
+    &__section:nth-child(4) {
+      grid-column: 2;
+      grid-row: 1 / span 3;
+    }
+  }
 }

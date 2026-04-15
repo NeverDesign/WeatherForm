@@ -1,5 +1,115 @@
 .p-friends {
-  background: $wf-base;
-  color: $wf-text-pri;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  background-color: $wf-base;
+  color: $wf-text-pri;
+
+  // ── Main content ──────────────────────────────────────────────────────────
+
+  &__main {
+    flex: 1;
+    padding: $space $space-md;
+  }
+
+  // ── Search bar ────────────────────────────────────────────────────────────
+
+  &__search {
+    display: flex;
+    gap: $space-sm;
+    margin-bottom: $space-md;
+  }
+
+  &__search-input {
+    flex: 1;
+    background-color: $wf-base;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    color: $wf-text-pri;
+    font-size: $font-size-sm;
+    padding: $space-xs $space-sm;
+    outline: none;
+    transition: border-color 0.15s ease;
+
+    &::placeholder {
+      color: $wf-text-muted;
+    }
+
+    &:focus {
+      border-color: $wf-accent;
+    }
+  }
+
+  &__search-btn {
+    background-color: $wf-accent;
+    color: $wf-ink;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: $font-size-sm;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: $wf-accent-hover;
+    }
+  }
+
+  // ── Section ───────────────────────────────────────────────────────────────
+
+  &__section {
+    margin-bottom: $space-md;
+  }
+
+  &__section-label {
+    margin-bottom: $space-sm;
+  }
+
+  // ── Empty states ──────────────────────────────────────────────────────────
+
+  &__empty-pending {
+    color: $wf-text-muted;
+    margin-bottom: 0;
+    padding: $space-sm 0;
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $space-xl $space-md;
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    text-align: center;
+    gap: $space-sm;
+  }
+
+  &__empty-heading {
+    margin-bottom: 0;
+    color: $wf-text-pri;
+  }
+
+  &__empty-body {
+    margin-bottom: 0;
+    color: $wf-text-sec;
+  }
+
+  // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
+
+  @media (min-width: 768px) {
+    &__main {
+      max-width: $container-width;
+      margin: 0 auto;
+      padding: $space-md $space-lg;
+    }
+
+    &__sections-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $space-md;
+    }
+  }
 }

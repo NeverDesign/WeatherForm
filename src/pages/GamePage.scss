@@ -1,5 +1,173 @@
 .p-game {
-  background: $wf-base;
-  color: $wf-text-pri;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  background-color: $wf-ink;
+  color: $wf-text-pri;
+
+  // ── Player info bars ──────────────────────────────────────────────────────
+
+  &__player-bar {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    padding: $space-sm $space-md;
+    background-color: $wf-base;
+    border-bottom: 1px solid $wf-border;
+
+    &--self {
+      border-top: 1px solid $wf-border;
+      border-bottom: none;
+      order: 3;
+    }
+
+    &--opponent {
+      order: 1;
+    }
+  }
+
+  &__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: $wf-panel;
+    border: 2px solid $wf-border;
+    flex-shrink: 0;
+  }
+
+  &__player-info {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__player-name {
+    color: $wf-text-pri;
+  }
+
+  &__hp-bar {
+    height: 4px;
+    background-color: $wf-panel;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  &__hp-fill {
+    height: 100%;
+    background-color: $wf-accent;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  // ── Board area ────────────────────────────────────────────────────────────
+
+  &__board-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-sm;
+    order: 2;
+  }
+
+  &__board {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid $wf-border;
+  }
+
+  &__board-row {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  &__tile {
+    aspect-ratio: 1;
+
+    &--dark {
+      background-color: $wf-base;
+    }
+
+    &--light {
+      background-color: $wf-raised;
+    }
+  }
+
+  // ── Floating dock ─────────────────────────────────────────────────────────
+
+  &__dock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-sm;
+    padding: $space-sm $space-md;
+    background-color: $wf-raised;
+    border-top: 1px solid $wf-border;
+    order: 4;
+  }
+
+  &__dock-btn {
+    background-color: $wf-panel;
+    color: $wf-text-sec;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: $wf-accent;
+      color: $wf-text-pri;
+    }
+
+    &--danger {
+      &:hover {
+        border-color: $wf-danger;
+        color: $wf-danger;
+      }
+    }
+  }
+
+  &__dock-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 56px;
+  }
+
+  &__dock-timer-label {
+    margin-bottom: $space-xs;
+  }
+
+  &__dock-timer-value {
+    color: $wf-accent;
+  }
+
+  // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
+
+  @media (min-width: 768px) {
+    &__board-area {
+      padding: $space-md;
+    }
+
+    &__board {
+      max-width: 560px;
+    }
+
+    &__dock {
+      border-radius: 12px;
+      border: 1px solid $wf-border;
+      margin: 0 auto $space-md;
+      width: fit-content;
+      padding: $space-sm $space-md;
+    }
+  }
 }

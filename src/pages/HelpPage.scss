@@ -1,5 +1,224 @@
 .p-help {
-  background: $wf-base;
-  color: $wf-text-pri;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  background-color: $wf-base;
+  color: $wf-text-pri;
+
+  // ── Layout wrapper ────────────────────────────────────────────────────────
+
+  &__layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // ── Sidebar nav ───────────────────────────────────────────────────────────
+
+  &__sidebar {
+    display: none; // hidden on mobile; shown as grid column on desktop
+    padding: $space $space-md;
+    background-color: $wf-raised;
+    border-right: 1px solid $wf-border;
+  }
+
+  &__nav-group {
+    margin-bottom: $space-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav-heading {
+    margin-bottom: $space-sm;
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__nav-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    color: $wf-text-sec;
+    border: none;
+    border-radius: 6px;
+    font-size: $font-size-sm;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background-color: $wf-panel;
+      color: $wf-text-pri;
+    }
+
+    &--active {
+      background-color: $wf-panel;
+      color: $wf-accent;
+      font-weight: 600;
+    }
+  }
+
+  // ── Main content ──────────────────────────────────────────────────────────
+
+  &__content {
+    flex: 1;
+    padding: $space $space-md;
+  }
+
+  // ── Content panes ─────────────────────────────────────────────────────────
+
+  &__pane {
+    max-width: $container-width-narrow;
+  }
+
+  &__pane-heading {
+    margin-bottom: $space-sm;
+    color: $wf-text-pri;
+  }
+
+  &__pane-subheading {
+    margin-bottom: $space-md;
+    color: $wf-text-sec;
+  }
+
+  &__pane-body {
+    color: $wf-text-sec;
+    margin-bottom: $space-md;
+  }
+
+  &__pane-note {
+    color: $wf-text-muted;
+    margin-top: $space-md;
+    margin-bottom: 0;
+    font-size: $font-size-sm;
+  }
+
+  // ── Element advantage table ───────────────────────────────────────────────
+
+  &__advantage-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+    margin-bottom: 0;
+  }
+
+  &__advantage-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $space-sm $space-sm;
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+  }
+
+  &__advantage-matchup {
+    color: $wf-text-pri;
+    font-family: $font-brand;
+    text-transform: uppercase;
+    letter-spacing: $tracking-eyebrow-sm;
+  }
+
+  &__advantage-multiplier {
+    color: $wf-accent;
+  }
+
+  // ── Ability tabs ──────────────────────────────────────────────────────────
+
+  &__ability-tabs {
+    display: flex;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: $space-md;
+  }
+
+  &__ability-tab {
+    flex: 1;
+    padding: $space-sm $space-xs;
+    background-color: transparent;
+    border: none;
+    color: $wf-text-muted;
+    font-family: $font-brand;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: $tracking-eyebrow-sm;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &--active {
+      background-color: $wf-panel;
+      color: $wf-accent;
+    }
+
+    &:not(&--active):hover {
+      background-color: $wf-raised;
+      color: $wf-text-sec;
+    }
+  }
+
+  // ── Rules list ────────────────────────────────────────────────────────────
+
+  &__rules-list {
+    list-style: disc;
+    padding-left: $space-md;
+    color: $wf-text-sec;
+  }
+
+  &__rules-item {
+    margin-bottom: $space-sm;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // ── Pane CTA ──────────────────────────────────────────────────────────────
+
+  &__pane-cta {
+    background-color: $wf-accent;
+    color: $wf-ink;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: $font-size-sm;
+    padding: $space-sm $space-md;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: $wf-accent-hover;
+    }
+  }
+
+  // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
+
+  @media (min-width: 768px) {
+    &__layout {
+      flex-direction: row;
+      max-width: $container-width;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    &__sidebar {
+      display: block;
+      width: 220px;
+      flex-shrink: 0;
+    }
+
+    &__content {
+      padding: $space-md $space-lg;
+    }
+  }
 }

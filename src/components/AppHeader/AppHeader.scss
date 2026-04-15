@@ -1,4 +1,7 @@
 .c-app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: $wf-ink;
   border-bottom: 1px solid $wf-border;
   padding: 10px 14px;

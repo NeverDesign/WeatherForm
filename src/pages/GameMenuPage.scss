@@ -1,5 +1,104 @@
 .p-game-menu {
-  background: $wf-base;
-  color: $wf-text-pri;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  background-color: $wf-base;
+  color: $wf-text-pri;
+
+  // ── Main content ──────────────────────────────────────────────────────────
+
+  &__main {
+    flex: 1;
+    padding: $space $space-md;
+    padding-bottom: $space-xxl;
+  }
+
+  // ── Section ───────────────────────────────────────────────────────────────
+
+  &__section {
+    margin-bottom: $space-md;
+  }
+
+  &__section-label {
+    margin-bottom: $space-sm;
+  }
+
+  // ── Empty state ───────────────────────────────────────────────────────────
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $space-xl $space-md;
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    text-align: center;
+    gap: $space-sm;
+  }
+
+  &__empty-heading {
+    margin-bottom: 0;
+    color: $wf-text-pri;
+  }
+
+  &__empty-body {
+    margin-bottom: 0;
+    color: $wf-text-sec;
+  }
+
+  &__empty-actions {
+    display: flex;
+    gap: $space-sm;
+    margin-top: $space-sm;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  // ── CTA buttons ───────────────────────────────────────────────────────────
+
+  &__cta-primary {
+    background-color: $wf-accent;
+    color: $wf-ink;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: $font-size-sm;
+    padding: $space-sm $space-md;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: $wf-accent-hover;
+    }
+  }
+
+  &__cta-secondary {
+    background-color: transparent;
+    color: $wf-text-sec;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: $font-size-sm;
+    padding: $space-sm $space-md;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      border-color: $wf-accent;
+      color: $wf-accent;
+    }
+  }
+
+  // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
+
+  @media (min-width: 768px) {
+    &__main {
+      max-width: $container-width;
+      margin: 0 auto;
+      padding: $space-md $space-lg;
+    }
+  }
 }

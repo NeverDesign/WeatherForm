@@ -3,6 +3,7 @@ export const friendsContent = {
     title: 'Friends',
   },
   search: {
+    label: 'Search for players',
     placeholder: 'Add by player tag…',
     submitAction: 'Add',
     notFoundError: 'No player found with that tag.',

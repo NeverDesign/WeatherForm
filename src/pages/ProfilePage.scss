@@ -1,5 +1,203 @@
 .p-profile {
-  background: $wf-base;
-  color: $wf-text-pri;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  background-color: $wf-base;
+  color: $wf-text-pri;
+
+  // ── Main content ──────────────────────────────────────────────────────────
+
+  &__main {
+    flex: 1;
+    padding: $space $space-md;
+  }
+
+  // ── Avatar area ───────────────────────────────────────────────────────────
+
+  &__avatar-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-sm;
+    padding: $space-md 0 $space-lg;
+  }
+
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: $wf-panel;
+    border: 2px solid $wf-accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__avatar-initial {
+    color: $wf-accent;
+    font-size: $font-size-xl;
+  }
+
+  &__version {
+    margin-top: $space-xs;
+  }
+
+  // ── Section ───────────────────────────────────────────────────────────────
+
+  &__section {
+    margin-bottom: $space-md;
+  }
+
+  &__section-label {
+    margin-bottom: $space-sm;
+  }
+
+  // ── Field list ────────────────────────────────────────────────────────────
+
+  &__field-list {
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__field-row {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    padding: $space-sm $space-sm;
+    background-color: $wf-raised;
+    border-bottom: 1px solid $wf-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__field-label {
+    width: 100px;
+    flex-shrink: 0;
+  }
+
+  &__field-value {
+    flex: 1;
+    min-width: 0;
+    color: $wf-text-pri;
+
+    &--muted {
+      color: $wf-text-muted;
+    }
+  }
+
+  &__field-action {
+    background-color: transparent;
+    color: $wf-accent;
+    border: none;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    padding: $space-xs;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $wf-accent-hover;
+    }
+  }
+
+  // ── App link list ─────────────────────────────────────────────────────────
+
+  &__link-list {
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__link-row {
+    display: flex;
+    align-items: center;
+    padding: $space-sm $space-sm;
+    background-color: $wf-raised;
+    border-bottom: 1px solid $wf-border;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: $wf-panel;
+    }
+  }
+
+  &__link-label {
+    flex: 1;
+    color: $wf-text-pri;
+  }
+
+  &__link-chevron {
+    color: $wf-text-muted;
+    font-size: $font-size-md;
+  }
+
+  // ── Account actions ───────────────────────────────────────────────────────
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__action-btn {
+    width: 100%;
+    background-color: transparent;
+    color: $wf-text-sec;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    padding: $space-sm $space-md;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      border-color: $wf-text-sec;
+      color: $wf-text-pri;
+    }
+
+    &--danger {
+      color: $wf-danger;
+      border-color: transparent;
+
+      &:hover {
+        border-color: $wf-danger;
+        color: $wf-danger;
+      }
+    }
+  }
+
+  // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
+
+  @media (min-width: 768px) {
+    &__main {
+      max-width: $container-width;
+      margin: 0 auto;
+      padding: $space-md $space-lg;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: $space-md;
+      align-items: start;
+    }
+
+    &__avatar-area {
+      grid-column: 1;
+      grid-row: 1 / span 3;
+      padding-top: $space-lg;
+    }
+
+    &__section {
+      grid-column: 2;
+    }
+  }
 }

@@ -1,0 +1,44 @@
+// ─── NotFoundPage ─────────────────────────────────────────────────────────────
+// Escape-hatch 404 page — no AppHeader, fully centred.
+// Tokens are auto-injected by Vite; no @import needed.
+// ─────────────────────────────────────────────────────────────────────────────
+
+.p-not-found {
+  background: $wf-ink;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .container-narrow {
+    max-width: $container-width-narrow;
+    margin-inline: auto;
+    padding-inline: $space-md;
+  }
+}
+
+.p-not-found__hero {
+  text-align: center;
+  padding: $space-xxxl 0;
+  width: 100%;
+}
+
+.p-not-found__code {
+  // Override the default wf-type-display color to accent
+  color: $wf-accent;
+  font-size: $font-size-xxxl;
+  font-weight: 700;
+  display: block;
+  margin-bottom: $space-md;
+}
+
+.p-not-found__heading {
+  color: $wf-text-pri;
+  margin-bottom: $space-sm;
+}
+
+.p-not-found__body {
+  color: $wf-text-sec;
+  margin-bottom: $space-xl;
+}

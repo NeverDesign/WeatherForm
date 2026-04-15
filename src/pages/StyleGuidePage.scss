@@ -1,0 +1,454 @@
+.p-style-guide {
+  min-height: 100vh;
+  background-color: $wf-ink;
+  color: $wf-text-pri;
+
+  // ── Container ─────────────────────────────────────────────────────────────
+
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: $space-lg $space;
+
+    @media (min-width: 768px) {
+      padding: $space-xxl $space-lg;
+    }
+  }
+
+  // ── Page header ───────────────────────────────────────────────────────────
+
+  &__page-header {
+    margin-bottom: $space-xxxl;
+    padding-bottom: $space-lg;
+    border-bottom: 1px solid $wf-border;
+  }
+
+  &__page-eyebrow {
+    margin-bottom: $space-xs;
+  }
+
+  &__page-subtitle {
+    margin-bottom: 0;
+  }
+
+  // ── Sections ──────────────────────────────────────────────────────────────
+
+  &__section {
+    padding-top: $space-xxl;
+    border-top: 1px solid $wf-border;
+    margin-top: $space-xxl;
+
+    &:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+
+  &__section-heading {
+    margin-bottom: $space-lg;
+  }
+
+  &__section-intro {
+    margin-bottom: $space-lg;
+    margin-top: -$space-md;
+  }
+
+  // ── Brand showcase ────────────────────────────────────────────────────────
+
+  &__brand-showcase {
+    display: flex;
+    align-items: center;
+    gap: $space-xl;
+    flex-wrap: wrap;
+  }
+
+  &__brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+
+    .wf-type-logo {
+      margin-bottom: 0;
+    }
+
+    .wf-type-caption {
+      margin-bottom: 0;
+    }
+  }
+
+  // ── Swatch grid ───────────────────────────────────────────────────────────
+
+  &__group-label {
+    margin-bottom: $space-sm;
+    margin-top: $space-lg;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  &__swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-sm;
+    margin-bottom: $space-sm;
+
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &__swatch {
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+
+    &--compact {
+      flex: 1;
+    }
+  }
+
+  &__swatch-block {
+    height: 60px;
+    background-color: var(--swatch-color);
+  }
+
+  &__swatch-info {
+    padding: $space-sm;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__swatch-token {
+    font-size: $font-size-xxs;
+    color: $wf-text-sec;
+    word-break: break-all;
+  }
+
+  &__swatch-hex {
+    font-size: $font-size-xxs;
+    color: $wf-text-muted;
+  }
+
+  &__swatch-use {
+    font-size: $font-size-xxs;
+    color: $wf-text-muted;
+    margin-top: $space-xs;
+    line-height: 1.4;
+  }
+
+  // ── Element palettes ──────────────────────────────────────────────────────
+
+  &__element-palettes {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+  }
+
+  &__element-palette {
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    padding: $space;
+  }
+
+  &__element-palette-header {
+    display: flex;
+    align-items: baseline;
+    gap: $space-sm;
+    margin-bottom: $space;
+  }
+
+  &__element-name {
+    color: $wf-text-pri;
+  }
+
+  &__element-flavour {
+    color: $wf-text-muted;
+  }
+
+  &__element-swatches {
+    display: flex;
+    gap: $space-sm;
+  }
+
+  // ── Typography specimens ──────────────────────────────────────────────────
+
+  &__type-specimens {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__type-row {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    padding: $space-md 0;
+    border-bottom: 1px solid $wf-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+      align-items: center;
+      gap: $space-lg;
+    }
+  }
+
+  &__type-meta {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+    min-width: 220px;
+    flex-shrink: 0;
+  }
+
+  &__type-class {
+    font-size: $font-size-xs;
+    color: $wf-accent;
+  }
+
+  &__type-desc {
+    color: $wf-text-muted;
+    font-size: $font-size-xxs;
+  }
+
+  &__type-sample {
+    flex: 1;
+    min-width: 0;
+    // the actual wf-type-* class handles all visual styles
+  }
+
+  // ── Spacing scale ─────────────────────────────────────────────────────────
+
+  &__spacing-scale {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__spacing-row {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__spacing-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+
+  &__spacing-token {
+    font-size: $font-size-xs;
+    color: $wf-accent;
+  }
+
+  &__spacing-value {
+    font-size: $font-size-xxs;
+    color: $wf-text-muted;
+  }
+
+  &__spacing-track {
+    flex: 1;
+    height: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__spacing-bar {
+    height: 20px;
+    min-width: 4px;
+    width: var(--bar-width);
+    background-color: $wf-accent;
+    border-radius: 3px;
+  }
+
+  // ── Component previews ────────────────────────────────────────────────────
+
+  &__subsection-heading {
+    margin-top: $space-xl;
+    margin-bottom: $space;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__preview-frame {
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: $wf-base;
+
+    &--dark {
+      background-color: $wf-ink;
+    }
+
+    &--mt {
+      margin-top: $space-sm;
+    }
+  }
+
+  // ── Buttons ───────────────────────────────────────────────────────────────
+
+  &__button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-sm;
+    align-items: center;
+  }
+
+  &__btn-ghost {
+    background-color: transparent;
+    color: $wf-text-sec;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    font-size: $font-size-sm;
+    padding: $space-sm $space;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      background-color: $wf-raised;
+      color: $wf-text-pri;
+      border-color: $wf-text-muted;
+    }
+  }
+
+  // ── Form inputs ───────────────────────────────────────────────────────────
+
+  &__inputs-row {
+    display: flex;
+    flex-direction: column;
+    gap: $space;
+
+    @media (min-width: 480px) {
+      flex-direction: row;
+    }
+  }
+
+  &__input-group {
+    flex: 1;
+    min-width: 0;
+  }
+
+  // ── Cards ─────────────────────────────────────────────────────────────────
+
+  &__cards-row {
+    display: flex;
+    flex-direction: column;
+    gap: $space;
+
+    @media (min-width: 480px) {
+      flex-direction: row;
+    }
+  }
+
+  &__card {
+    flex: 1;
+    padding: $space;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    min-width: 0;
+
+    &--raised {
+      background-color: $wf-raised;
+    }
+
+    &--panel {
+      background-color: $wf-panel;
+    }
+  }
+
+  &__card-heading {
+    margin-bottom: $space-sm;
+    margin-top: $space-xs;
+  }
+
+  // ── Elements grid ─────────────────────────────────────────────────────────
+
+  &__elements-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__element-col {
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    padding: $space;
+  }
+
+  &__element-display {
+    // Override default wf-type-display colour with element colour
+    color: var(--element-color) !important;
+    margin-bottom: $space-xs;
+  }
+
+  &__element-flavour-text {
+    margin-bottom: $space;
+    color: $wf-text-muted;
+    font-size: $font-size-xs;
+  }
+
+  &__element-stack {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__element-swatch {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    border: 1px solid $wf-border;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  &__element-swatch-block {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background-color: var(--swatch-color);
+  }
+
+  &__element-swatch-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: $space-xs 0;
+  }
+
+  &__element-swatch-token {
+    font-size: $font-size-xxs;
+    color: $wf-text-sec;
+  }
+
+  &__element-swatch-hex {
+    font-size: $font-size-xxs;
+    color: $wf-text-muted;
+  }
+}

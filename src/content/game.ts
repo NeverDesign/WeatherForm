@@ -2,6 +2,10 @@ export const gameContent = {
   meta: {
     title: 'Game',
   },
+  players: {
+    opponent: 'Opponent',
+    you: 'You',
+  },
   hud: {
     timerLabel: 'Your turn',
     timerExpired: 'Time expired',

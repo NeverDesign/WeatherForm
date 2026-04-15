@@ -1,0 +1,10 @@
+// ─── Global CSS entry point ───────────────────────────────────────────────────
+// Imported once in src/main.ts. Produces all global CSS output.
+//
+// Token variables ($primary, $space-md, etc.) are already available here
+// because Vite's additionalData prepends _settings.scss to this file too.
+// Bootstrap reads the overridden variables defined there.
+// ─────────────────────────────────────────────────────────────────────────────
+
+@import "bootstrap/scss/bootstrap";
+@import "typography";
