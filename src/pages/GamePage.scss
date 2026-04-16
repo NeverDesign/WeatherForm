@@ -70,6 +70,7 @@
     justify-content: center;
     padding: $space-sm;
     order: 2;
+    position: relative; // needed for replay-badge absolute positioning
   }
 
   &__board {
@@ -88,6 +89,9 @@
 
   &__tile {
     aspect-ratio: 1;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
 
     &--dark {
       background-color: $wf-base;
@@ -95,6 +99,172 @@
 
     &--light {
       background-color: $wf-raised;
+    }
+
+    &--selected {
+      outline: 2px solid $wf-accent;
+      outline-offset: -2px;
+      z-index: 1;
+    }
+
+    &--valid-move::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba($wf-accent, 0.25);
+      pointer-events: none;
+    }
+
+    &--capture::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba($wf-danger, 0.30);
+      pointer-events: none;
+    }
+  }
+
+  // ── Pieces layer ───────────────────────────────────────────────────────────
+
+  &__pieces-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; // settled — per project-overrides.md pointer event model
+  }
+
+  &__piece {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: auto; // individual pieces are clickable
+    z-index: 2;
+
+    &--p2 {
+      // P2 pieces shown with a subtle underline to distinguish from P1 visually
+      text-decoration: underline;
+    }
+  }
+
+  // ── Replay indicator ───────────────────────────────────────────────────────
+
+  &__replay-badge {
+    position: absolute;
+    top: $space-sm;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $wf-panel;
+    color: $wf-text-sec;
+    border: 1px solid $wf-border;
+    border-radius: 4px;
+    padding: $space-xs $space-sm;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    z-index: 10;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  &__board--replaying {
+    opacity: 0.65;
+  }
+
+  // ── Move log panel (desktop only) ──────────────────────────────────────────
+
+  &__move-log-panel {
+    display: none; // mobile: hidden; desktop: shown via media query below
+  }
+
+  &__move-log-heading {
+    margin: 0 0 $space-sm;
+    color: $wf-text-pri;
+  }
+
+  &__move-log-empty {
+    color: $wf-text-sec;
+    margin: 0;
+  }
+
+  &__move-log-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+    max-height: 400px;
+  }
+
+  &__move-log-row {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    padding: $space-xs $space-sm;
+    border-radius: 4px;
+    cursor: pointer;
+    color: $wf-text-sec;
+    transition: background-color 0.1s ease, color 0.1s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: $wf-panel;
+      color: $wf-text-pri;
+      outline: 1px solid $wf-border;
+    }
+
+    &--active {
+      color: $wf-accent;
+    }
+  }
+
+  &__move-log-index {
+    min-width: 1.5rem;
+    opacity: 0.5;
+  }
+
+  &__move-log-text {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // ── Ability slots ──────────────────────────────────────────────────────────
+
+  &__ability-slots {
+    display: flex;
+    gap: $space-xs;
+  }
+
+  &__dock-btn--ability {
+    min-width: 2rem;
+    opacity: 0.4;
+    cursor: not-allowed;
+
+    &:hover {
+      border-color: $wf-border; // override hover — these are always disabled
+      color: $wf-text-sec;
+    }
+  }
+
+  &__dock-btn--primary {
+    border-color: $wf-accent;
+    color: $wf-accent;
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      border-color: $wf-border;
+      color: $wf-text-sec;
+    }
+
+    &:not(:disabled):hover {
+      background-color: $wf-accent;
+      color: $wf-ink;
     }
   }
 
@@ -156,10 +326,13 @@
   @media (min-width: 768px) {
     &__board-area {
       padding: $space-md;
+      align-items: flex-start;
+      gap: $space-md;
     }
 
     &__board {
       max-width: 560px;
+      flex-shrink: 0;
     }
 
     &__dock {
@@ -169,5 +342,23 @@
       width: fit-content;
       padding: $space-sm $space-md;
     }
+
+    &__move-log-panel {
+      display: flex;
+      flex-direction: column;
+      width: 240px;
+      flex-shrink: 0;
+      background-color: $wf-raised;
+      border: 1px solid $wf-border;
+      border-radius: 8px;
+      padding: $space-sm;
+      align-self: flex-start;
+      animation: slide-in-right 0.2s ease;
+    }
   }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
 }

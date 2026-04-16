@@ -12,6 +12,10 @@ export const gameContent = {
     abilityButton: 'Ability',
     moveLogButton: 'Move Log',
     resignButton: 'Resign',
+    endTurn: 'End Turn',
+    exitReplay: 'Exit Replay',
+    abilitySlot: '—',
+    replayingBadge: 'Replaying\u2026',
   },
   moveLog: {
     heading: 'Move Log',
