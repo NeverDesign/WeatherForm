@@ -1,5 +1,18 @@
 export type Element = 'TIDE' | 'GALE' | 'DUNE'
 
+export type {
+  PieceType,
+  Square,
+  Piece,
+  BoardState,
+  PlayerState,
+  GamePhase,
+  GameEvent,
+  GameState,
+} from './game'
+
+export { ELEMENT_MULTIPLIERS } from './game'
+
 export const ROUTES = {
   SPLASH:  '/',
   AUTH:    '/auth',
