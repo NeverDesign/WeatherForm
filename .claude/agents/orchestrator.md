@@ -2,6 +2,7 @@
 name: orchestrator
 description: Use when a task spans more than one discipline or needs breaking down before work starts. Plans, sequences, and dispatches specialist agents. Monitors handoffs, routes QA failures, writes session summary. Does not write application code.
 model: claude-sonnet-4-6
+color: orange
 tools:
   - Read
   - Write

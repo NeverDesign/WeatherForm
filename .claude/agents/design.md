@@ -2,6 +2,7 @@
 name: design
 description: Design specification specialist. Use for wireframes, screen specs, component inventory, and Figma handoffs. Always runs before frontend.
 model: claude-sonnet-4-6
+color: purple
 tools:
   - Read
   - Write

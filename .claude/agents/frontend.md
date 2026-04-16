@@ -2,6 +2,7 @@
 name: frontend
 description: Vue template and SCSS specialist. Use for building pages, components, and styles. Does not touch script setup, stores, services, types, or content files.
 model: claude-sonnet-4-6
+color: teal
 tools:
   - Read
   - Write

@@ -2,6 +2,7 @@
 name: backend
 description: TypeScript logic specialist. Use for types, Pinia stores, composables, services, router config, and script setup blocks. Does not touch templates, SCSS, or copy strings.
 model: claude-sonnet-4-6
+color: blue
 tools:
   - Read
   - Write

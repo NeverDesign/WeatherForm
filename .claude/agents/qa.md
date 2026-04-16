@@ -2,6 +2,7 @@
 name: qa
 description: QA and audit specialist. Runs after all implementation agents complete. Tests, audits, and reports — does not fix. Routes every failure to the correct agent with file, line, and fix instruction.
 model: claude-sonnet-4-6
+color: yellow
 tools:
   - Read
   - Glob

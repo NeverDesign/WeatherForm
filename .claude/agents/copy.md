@@ -2,6 +2,7 @@
 name: copy
 description: UI copy specialist. Use for writing all user-facing strings in src/content/ — headings, labels, CTAs, errors, empty states. Owns src/content/ exclusively.
 model: claude-sonnet-4-6
+color: purple
 tools:
   - Read
   - Write
