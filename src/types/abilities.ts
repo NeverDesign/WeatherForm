@@ -44,6 +44,53 @@ export interface Ability {
  */
 export type AbilitySet = [string, string, string, string, string, string]
 
+// ─── Saved Set ────────────────────────────────────────────────────────────────
+
+/**
+ * A named, persisted ability set belonging to the local player.
+ * Stored in localStorage under key `wf_sets`.
+ */
+export interface SavedSet {
+  id: string
+  name: string
+  element: Element
+  abilities: AbilitySet
+}
+
+// ─── Element Ability Order ────────────────────────────────────────────────────
+
+/**
+ * Default slot assignment for each element's abilities.
+ * Ordered: PAWN, KNIGHT, ROOK, BISHOP, QUEEN, KING.
+ * Used to build the default AbilitySet when a player picks an element.
+ */
+export const ELEMENT_ABILITY_ORDER: Record<Element, AbilitySet> = {
+  TIDE: [
+    'TIDE_SURGE_STRIKE',
+    'TIDE_RIPTIDE_CHARGE',
+    'TIDE_TIDAL_SLAM',
+    'TIDE_UNDERTOW',
+    'TIDE_FLOOD_VENOM',
+    'TIDE_WHIRLPOOL_AURA',
+  ],
+  GALE: [
+    'GALE_GUST_STRIKE',
+    'GALE_WIND_SLAM',
+    'GALE_CYCLONE_CHARGE',
+    'GALE_TAILWIND',
+    'GALE_TEMPEST_STRIKE',
+    'GALE_EYE_OF_THE_STORM',
+  ],
+  DUNE: [
+    'DUNE_SAND_STRIKE',
+    'DUNE_BEDROCK_SLAM',
+    'DUNE_DUNE_CHARGE',
+    'DUNE_SANDSTORM',
+    'DUNE_QUICKSAND_VENOM',
+    'DUNE_DUNE_AURA',
+  ],
+} as const
+
 // ─── Registry ─────────────────────────────────────────────────────────────────
 
 /**

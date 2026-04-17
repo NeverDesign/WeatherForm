@@ -19,7 +19,7 @@ The goal is to move from a designed prototype to a working async multiplayer gam
 | 4 | Game store (local) | `@backend` | `[x] done` |
 | 5 | GamePage UI integration | `@frontend` `@backend` | `[x] done` |
 | 6 | Ability design + types | `@copy` `@backend` | `[x] done` |
-| 7 | Set Manager integration | `@backend` `@frontend` | `[ ] pending` |
+| 7 | Set Manager integration | `@backend` `@frontend` | `[x] done` |
 | 8 | Supabase setup + schema | `@backend` | `[ ] pending` |
 | 9 | gameService (Supabase) | `@backend` | `[ ] pending` |
 | 10 | Game store sync | `@backend` | `[ ] pending` |
@@ -156,7 +156,7 @@ The game engine is the critical path for everything else. Per `project-overrides
 
 ### Phase 7 — Set Manager Integration
 
-> Status: `[ ] pending`
+> Status: `[x] done` — 2026-04-16
 
 **File:** `src/pages/SetManagerPage.vue`
 

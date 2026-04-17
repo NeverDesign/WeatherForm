@@ -102,13 +102,39 @@
   }
 
   &__piece-name {
-    flex: 1;
+    min-width: 56px;
   }
 
-  &__piece-ability {
-    color: $wf-text-muted;
+  &__ability-name {
+    flex: 1;
     font-size: $font-size-sm;
-    text-align: right;
+  }
+
+  &__ability-desc {
+    color: $wf-text-muted;
+    font-size: $font-size-xs;
+    display: none; // shown at wider breakpoints
+
+    @media (min-width: 480px) {
+      display: inline;
+    }
+  }
+
+  &__cooldown-badge {
+    background-color: $wf-base;
+    border: 1px solid $wf-border;
+    border-radius: 4px;
+    color: $wf-text-muted;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    padding: 2px $space-xs;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  // Selected/active row highlight
+  &__ability-row--active {
+    border-color: $wf-accent;
   }
 
   &__army-total {
@@ -147,6 +173,24 @@
     &:focus {
       border-color: $wf-accent;
     }
+  }
+
+  &__save-input--error {
+    border-color: $wf-danger;
+
+    &:focus {
+      border-color: $wf-danger;
+    }
+  }
+
+  &__save-error {
+    color: $wf-danger;
+    margin: 0;
+  }
+
+  &__save-success {
+    color: $wf-accent; // no dedicated success token — gold reads as positive confirmation
+    margin: 0;
   }
 
   &__save-btn {
@@ -190,6 +234,165 @@
   &__empty-body {
     margin-bottom: 0;
     color: $wf-text-sec;
+  }
+
+  // ── Saved sets list ───────────────────────────────────────────────────────
+
+  &__sets-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__set-row {
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+
+    &--confirming {
+      border-color: $wf-danger;
+    }
+  }
+
+  &__set-row-main {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    padding: $space-sm;
+  }
+
+  &__set-element-badge {
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: $font-size-xs;
+    padding: 2px $space-xs;
+    text-transform: uppercase;
+    letter-spacing: $tracking-eyebrow-sm;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    &--tide {
+      background-color: $wf-tide-bg;
+      color: $wf-tide-accent;
+    }
+
+    &--gale {
+      background-color: $wf-gale-bg;
+      color: $wf-gale-accent;
+    }
+
+    &--dune {
+      background-color: $wf-dune-bg;
+      color: $wf-dune-accent;
+    }
+  }
+
+  &__set-name {
+    flex: 1;
+    font-size: $font-size-sm;
+  }
+
+  &__in-use-badge {
+    background-color: $wf-panel;
+    border: 1px solid $wf-accent;
+    border-radius: 4px;
+    color: $wf-accent;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    padding: 2px $space-xs;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  &__set-actions {
+    display: flex;
+    gap: $space-xs;
+    flex-shrink: 0;
+  }
+
+  &__set-action {
+    background: none;
+    border: 1px solid $wf-border;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    padding: 2px $space-xs;
+    transition: border-color 0.15s ease, color 0.15s ease;
+
+    &--edit {
+      color: $wf-text-muted;
+
+      &:hover {
+        border-color: $wf-text-sec;
+        color: $wf-text-sec;
+      }
+    }
+
+    &--delete {
+      color: $wf-text-muted;
+
+      &:hover {
+        border-color: $wf-danger;
+        color: $wf-danger;
+      }
+    }
+  }
+
+  &__delete-confirm {
+    border-top: 1px solid $wf-danger;
+    padding: $space-sm;
+    background-color: $wf-base;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__delete-confirm-heading {
+    margin: 0;
+    color: $wf-text-pri;
+  }
+
+  &__delete-confirm-body {
+    margin: 0;
+    color: $wf-text-muted;
+  }
+
+  &__delete-confirm-actions {
+    display: flex;
+    gap: $space-xs;
+  }
+
+  &__delete-confirm-btn {
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: $font-size-xs;
+    font-weight: 700;
+    padding: $space-xs $space-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.15s ease;
+
+    &--confirm {
+      background-color: $wf-danger;
+      color: $wf-ink;
+
+      &:hover {
+        background-color: $wf-danger; // no separate hover token — kept same
+        opacity: 0.85;
+      }
+    }
+
+    &--cancel {
+      background-color: $wf-raised;
+      color: $wf-text-sec;
+
+      &:hover {
+        background-color: $wf-panel;
+      }
+    }
   }
 
   // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
