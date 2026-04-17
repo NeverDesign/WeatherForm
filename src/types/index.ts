@@ -13,6 +13,9 @@ export type {
 
 export { ELEMENT_MULTIPLIERS } from './game'
 
+export type { EffectType, Ability, AbilitySet } from './abilities'
+export { ABILITY_REGISTRY } from './abilities'
+
 export const ROUTES = {
   SPLASH:  '/',
   AUTH:    '/auth',

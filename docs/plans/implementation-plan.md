@@ -18,7 +18,7 @@ The goal is to move from a designed prototype to a working async multiplayer gam
 | 3 | Movement system | `@backend` | `[x] done` |
 | 4 | Game store (local) | `@backend` | `[x] done` |
 | 5 | GamePage UI integration | `@frontend` `@backend` | `[x] done` |
-| 6 | Ability design + types | `@copy` `@backend` | `[ ] pending` |
+| 6 | Ability design + types | `@copy` `@backend` | `[x] done` |
 | 7 | Set Manager integration | `@backend` `@frontend` | `[ ] pending` |
 | 8 | Supabase setup + schema | `@backend` | `[ ] pending` |
 | 9 | gameService (Supabase) | `@backend` | `[ ] pending` |
@@ -144,7 +144,7 @@ The game engine is the critical path for everything else. Per `project-overrides
 
 ### Phase 6 — Ability Design + Types
 
-> Status: `[ ] pending`
+> Status: `[x] done` — 2026-04-16
 
 **New file:** `src/types/abilities.ts`
 
