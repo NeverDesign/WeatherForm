@@ -97,6 +97,362 @@
     color: $wf-text-sec;
   }
 
+  // ── Search feedback ───────────────────────────────────────────────────────
+
+  &__search-feedback {
+    font-size: $font-size-xs;
+    margin-bottom: $space-sm;
+
+    &--success {
+      color: $wf-tide-accent;
+    }
+
+    &--error {
+      color: $wf-danger;
+    }
+  }
+
+  // ── Search results ─────────────────────────────────────────────────────────
+
+  &__result-list {
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: $space-md;
+  }
+
+  &__result-row {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    padding: $space-sm $space-sm;
+    background-color: $wf-raised;
+    border-bottom: 1px solid $wf-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__result-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__result-name {
+    color: $wf-text-pri;
+  }
+
+  &__result-tag {
+    color: $wf-text-muted;
+  }
+
+  &__result-action {
+    background-color: $wf-accent;
+    color: $wf-ink;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: $font-size-xs;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background-color: $wf-accent-hover;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  // ── Pending request rows ───────────────────────────────────────────────────
+
+  &__pending-list {
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__pending-row {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    padding: $space-sm $space-sm;
+    background-color: $wf-raised;
+    border-bottom: 1px solid $wf-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__pending-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__pending-name {
+    color: $wf-text-pri;
+  }
+
+  &__pending-label {
+    color: $wf-text-muted;
+  }
+
+  &__pending-actions {
+    display: flex;
+    gap: $space-xs;
+    flex-shrink: 0;
+  }
+
+  &__pending-accept {
+    background-color: $wf-tide-accent;
+    color: $wf-ink;
+    border: none;
+    border-radius: 6px;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+
+    &:hover:not(:disabled) {
+      opacity: 0.85;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__pending-decline {
+    background-color: transparent;
+    color: $wf-text-muted;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    font-size: $font-size-xs;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover:not(:disabled) {
+      color: $wf-text-sec;
+      border-color: $wf-text-sec;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  // ── Friends list rows ──────────────────────────────────────────────────────
+
+  &__friends-list {
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__friend-row {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-sm;
+    padding: $space-sm $space-sm;
+    background-color: $wf-raised;
+    border-bottom: 1px solid $wf-border;
+    flex-wrap: wrap;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__friend-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__friend-name {
+    color: $wf-text-pri;
+  }
+
+  &__friend-tag {
+    color: $wf-text-muted;
+  }
+
+  &__friend-actions {
+    display: flex;
+    gap: $space-xs;
+    flex-shrink: 0;
+  }
+
+  &__challenge-btn {
+    background-color: $wf-accent;
+    color: $wf-ink;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: $font-size-xs;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: $wf-accent-hover;
+    }
+  }
+
+  &__block-btn {
+    background-color: transparent;
+    color: $wf-text-muted;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    font-size: $font-size-xs;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: $wf-danger;
+      border-color: $wf-danger;
+    }
+  }
+
+  // ── Block confirm expansion ────────────────────────────────────────────────
+
+  &__block-confirm {
+    width: 100%;
+    border: 1px solid $wf-danger;
+    border-radius: 6px;
+    padding: $space-sm $space-sm;
+    background-color: $wf-panel;
+    margin-top: $space-xs;
+  }
+
+  &__block-confirm-heading {
+    font-weight: 600;
+    color: $wf-danger;
+    margin-bottom: $space-xs;
+  }
+
+  &__block-confirm-body {
+    color: $wf-text-sec;
+    margin-bottom: $space-sm;
+  }
+
+  &__block-confirm-actions {
+    display: flex;
+    gap: $space-xs;
+  }
+
+  &__block-confirm-cta {
+    background-color: $wf-danger;
+    color: $wf-ink;
+    border: none;
+    border-radius: 6px;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+
+    &:hover:not(:disabled) {
+      opacity: 0.85;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__block-cancel {
+    background-color: transparent;
+    color: $wf-text-muted;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    font-size: $font-size-xs;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $wf-text-sec;
+    }
+  }
+
+  // ── Challenge element picker ───────────────────────────────────────────────
+
+  &__challenge-picker {
+    display: flex;
+    gap: $space-xs;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: $space-xs;
+    width: 100%;
+  }
+
+  &__element-btn {
+    border: none;
+    border-radius: 6px;
+    font-size: $font-size-xs;
+    font-weight: 700;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &--tide {
+      background-color: $wf-tide-base;
+      color: $wf-tide-accent;
+    }
+
+    &--gale {
+      background-color: $wf-gale-base;
+      color: $wf-gale-accent;
+    }
+
+    &--dune {
+      background-color: $wf-dune-base;
+      color: $wf-dune-accent;
+    }
+  }
+
+  &__challenge-cancel {
+    background-color: transparent;
+    color: $wf-text-muted;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    font-size: $font-size-xs;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    margin-left: auto;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $wf-text-sec;
+    }
+  }
+
   // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
 
   @media (min-width: 768px) {

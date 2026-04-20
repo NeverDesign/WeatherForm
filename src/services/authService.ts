@@ -1,42 +1,92 @@
+import { supabase } from '@/lib/supabase'
 import type { Account, LoginCredentials, RegisterCredentials } from '@/types/auth'
 
-function toCamelCase(displayName: string): string {
-  return displayName
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((word, i) =>
-      i === 0
-        ? word.charAt(0).toUpperCase() + word.slice(1)
-        : word.charAt(0).toUpperCase() + word.slice(1)
-    )
-    .join('')
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function generatePlayerTag(displayName: string): string {
+  const base = displayName.replace(/\s+/g, '').slice(0, 16) || 'Player'
+  const digits = String(Math.floor(1000 + Math.random() * 9000))
+  return `${base}#${digits}`
 }
+
+interface AccountRow {
+  id: string
+  display_name: string
+  player_tag: string
+  created_at: string
+}
+
+function rowToAccount(row: AccountRow, email: string): Account {
+  return {
+    id: row.id,
+    displayName: row.display_name,
+    playerTag: row.player_tag,
+    email,
+    createdAt: row.created_at,
+  }
+}
+
+// ─── Service ──────────────────────────────────────────────────────────────────
 
 export const authService = {
   async login(credentials: LoginCredentials): Promise<Account> {
-    // STUB: replace with real API
-    await new Promise(r => setTimeout(r, 800))
-    return {
-      id: 'mock-user-001',
-      displayName: 'Storm Walker',
-      playerTag: 'StormWalker#4821',
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: credentials.email,
-    }
+      password: credentials.password,
+    })
+    if (error) throw new Error(error.message)
+    if (!data.user) throw new Error('Login failed: no user returned')
+
+    const { data: row, error: rowError } = await supabase
+      .from('accounts')
+      .select('id, display_name, player_tag, created_at')
+      .eq('id', data.user.id)
+      .single<AccountRow>()
+
+    if (rowError) throw new Error(rowError.message)
+    return rowToAccount(row, data.user.email ?? credentials.email)
   },
 
   async register(credentials: RegisterCredentials): Promise<Account> {
-    // STUB: replace with real API
-    await new Promise(r => setTimeout(r, 800))
-    const tag = `${toCamelCase(credentials.displayName)}#4821`
-    return {
-      id: 'mock-user-001',
-      displayName: credentials.displayName,
-      playerTag: tag,
+    const { data, error } = await supabase.auth.signUp({
       email: credentials.email,
-    }
+      password: credentials.password,
+    })
+    if (error) throw new Error(error.message)
+    if (!data.user) throw new Error('Registration failed: no user returned')
+
+    const playerTag = generatePlayerTag(credentials.displayName)
+
+    const { data: row, error: insertError } = await supabase
+      .from('accounts')
+      .insert({
+        id: data.user.id,
+        display_name: credentials.displayName,
+        player_tag: playerTag,
+      })
+      .select('id, display_name, player_tag, created_at')
+      .single<AccountRow>()
+
+    if (insertError) throw new Error(insertError.message)
+    return rowToAccount(row, data.user.email ?? credentials.email)
   },
 
-  logout(): void {
-    // STUB: replace with real API
+  async logout(): Promise<void> {
+    const { error } = await supabase.auth.signOut()
+    if (error) throw new Error(error.message)
+  },
+
+  async getSession(): Promise<Account | null> {
+    const { data: { session }, error } = await supabase.auth.getSession()
+    if (error || !session?.user) return null
+
+    const { data: row, error: rowError } = await supabase
+      .from('accounts')
+      .select('id, display_name, player_tag, created_at')
+      .eq('id', session.user.id)
+      .single<AccountRow>()
+
+    if (rowError || !row) return null
+    return rowToAccount(row, session.user.email ?? '')
   },
 }

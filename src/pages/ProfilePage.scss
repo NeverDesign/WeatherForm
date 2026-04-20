@@ -141,6 +141,99 @@
     font-size: $font-size-md;
   }
 
+  // ── Field inline edit ─────────────────────────────────────────────────────
+
+  &__field-row--editing {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: $space-xs $space-sm;
+  }
+
+  &__field-input {
+    flex: 1;
+    min-width: 0;
+    background-color: $wf-base;
+    border: 1px solid $wf-accent;
+    border-radius: 4px;
+    color: $wf-text-pri;
+    font-size: $font-size-sm;
+    padding: $space-xs $space-sm;
+    outline: none;
+
+    &::placeholder {
+      color: $wf-text-muted;
+    }
+
+    &:focus {
+      border-color: $wf-accent;
+      box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.25);
+    }
+  }
+
+  &__field-inline-actions {
+    display: flex;
+    gap: $space-xs;
+    flex-shrink: 0;
+  }
+
+  &__field-action--cancel {
+    color: $wf-text-muted;
+
+    &:hover {
+      color: $wf-text-sec;
+    }
+  }
+
+  // ── Feedback rows ─────────────────────────────────────────────────────────
+
+  &__feedback-row {
+    padding: $space-xs $space-sm;
+    background-color: $wf-raised;
+    border-bottom: 1px solid $wf-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__feedback {
+    font-size: $font-size-xs;
+
+    &--success {
+      color: $wf-tide-accent;
+    }
+
+    &--error {
+      color: $wf-danger;
+    }
+  }
+
+  // ── Delete confirm expansion ──────────────────────────────────────────────
+
+  &__delete-confirm {
+    border: 1px solid $wf-danger;
+    border-radius: 6px;
+    padding: $space-sm $space-md;
+    background-color: $wf-raised;
+  }
+
+  &__delete-confirm-heading {
+    font-weight: 600;
+    margin-bottom: $space-xs;
+    color: $wf-danger;
+  }
+
+  &__delete-confirm-body {
+    margin-bottom: $space-sm;
+    color: $wf-text-sec;
+  }
+
+  &__delete-confirm-actions {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
   // ── Account actions ───────────────────────────────────────────────────────
 
   &__actions {

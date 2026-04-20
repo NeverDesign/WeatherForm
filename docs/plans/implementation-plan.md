@@ -233,7 +233,7 @@ The game engine is the critical path for everything else. Per `project-overrides
 
 ### Phase 12+ — Friends, Profile, Real Auth
 
-> Status: `[ ] pending`
+> Status: `[x] done` — 2026-04-20
 
 - **FriendsPage:** search by player tag, send/accept/decline requests, challenge → create game
 - **ProfilePage:** edit display name (inline), sign out, delete account
