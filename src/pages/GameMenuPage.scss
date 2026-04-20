@@ -92,6 +92,246 @@
     }
   }
 
+  // ── Loading skeleton ──────────────────────────────────────────────────────
+
+  &__skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__skeleton-row {
+    height: 64px;
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    animation: wf-skeleton-pulse 1.4s ease-in-out infinite;
+  }
+
+  @keyframes wf-skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+
+  // ── Game list ─────────────────────────────────────────────────────────────
+
+  &__game-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__game-row {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    padding: $space-sm $space-md;
+  }
+
+  &__element-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 28px;
+    border-radius: 4px;
+    font-size: $font-size-xs;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $wf-ink;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  &__game-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__opponent {
+    color: $wf-text-pri;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__turn-badge {
+    display: inline-block;
+    padding: 2px $space-xs;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    width: fit-content;
+
+    &--your-turn {
+      background-color: $wf-accent;
+      color: $wf-ink;
+    }
+
+    &--waiting {
+      background-color: transparent;
+      color: $wf-text-sec;
+      border: 1px solid $wf-border;
+    }
+  }
+
+  &__row-action {
+    background-color: transparent;
+    color: $wf-text-sec;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    padding: $space-xs $space-sm;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: border-color 0.15s ease, color 0.15s ease;
+
+    &--play {
+      background-color: $wf-accent;
+      color: $wf-ink;
+      border-color: $wf-accent;
+      font-weight: 700;
+
+      &:hover {
+        background-color: $wf-accent-hover;
+        border-color: $wf-accent-hover;
+      }
+    }
+
+    &:not(&--play):hover {
+      border-color: $wf-accent;
+      color: $wf-accent;
+    }
+  }
+
+  // ── Modal ─────────────────────────────────────────────────────────────────
+
+  &__modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: $space-md;
+  }
+
+  &__modal {
+    background-color: $wf-raised;
+    border: 1px solid $wf-border;
+    border-radius: 8px;
+    padding: $space-lg;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+  }
+
+  &__modal-heading {
+    margin: 0;
+    color: $wf-text-pri;
+  }
+
+  &__modal-error {
+    margin: 0;
+    color: $wf-danger;
+  }
+
+  &__modal-actions {
+    display: flex;
+    gap: $space-sm;
+    flex-wrap: wrap;
+  }
+
+  // ── Form fields ───────────────────────────────────────────────────────────
+
+  &__fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__fieldset-legend {
+    color: $wf-text-sec;
+    margin-bottom: $space-xs;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__field-label {
+    color: $wf-text-sec;
+  }
+
+  &__field-input {
+    background-color: $wf-base;
+    border: 1px solid $wf-border;
+    border-radius: 6px;
+    color: $wf-text-pri;
+    font-size: $font-size-sm;
+    padding: $space-sm $space-md;
+    width: 100%;
+    transition: border-color 0.15s ease;
+
+    &::placeholder {
+      color: $wf-text-sec;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $wf-accent;
+    }
+  }
+
+  // ── Element selector ──────────────────────────────────────────────────────
+
+  &__element-selector {
+    display: flex;
+    gap: $space-sm;
+  }
+
+  &__element-btn {
+    flex: 1;
+    background-color: $wf-base;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-size: $font-size-sm;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: $space-sm;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+
+    &--selected {
+      background-color: $wf-raised;
+    }
+
+    &:hover:not(&--selected) {
+      background-color: $wf-raised;
+    }
+  }
+
   // ── Desktop layout (≥ 768px) ──────────────────────────────────────────────
 
   @media (min-width: 768px) {

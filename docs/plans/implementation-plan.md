@@ -23,7 +23,7 @@ The goal is to move from a designed prototype to a working async multiplayer gam
 | 8 | Supabase setup + schema | `@backend` | `[x] done` |
 | 9 | gameService (Supabase) | `@backend` | `[x] done` |
 | 10 | Game store sync | `@backend` | `[x] done` |
-| 11 | GameMenuPage + creation | `@frontend` `@backend` | `[ ] pending` |
+| 11 | GameMenuPage + creation | `@frontend` `@backend` | `[x] done` |
 | 12+ | Friends, Profile, Auth | all agents | `[ ] pending` |
 
 Phases 1–4 are pure backend, no UI, fast to execute. Phase 5 is the first playable moment (local only). Phases 8–11 add real async multiplayer.
@@ -216,7 +216,7 @@ The game engine is the critical path for everything else. Per `project-overrides
 
 ### Phase 11 — GameMenuPage + Game Creation
 
-> Status: `[ ] pending`  
+> Status: `[x] done` — 2026-04-20  
 > **Milestone: real async multiplayer**
 
 **File:** `src/pages/GameMenuPage.vue`

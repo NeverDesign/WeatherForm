@@ -4,10 +4,14 @@ export const gameMenuContent = {
   },
   sections: {
     currentGames: 'Your Games',
+    loadingGames: 'Loading games',
   },
   gameRow: {
     statusYourTurn: 'YOUR TURN',
     statusWaiting: 'WAITING',
+    opponentActive: 'vs. Opponent',
+    opponentWaiting: 'Waiting for opponent',
+    elementBadgeLabel: 'Element:',
     actionPlay: 'Play',
     actionOpen: 'Open',
   },
@@ -30,5 +34,17 @@ export const gameMenuContent = {
     cancel: 'Cancel',
     errorNoOpponent: 'Enter an opponent player tag.',
     errorNoElement: 'Choose an element to continue.',
+    errorCreateFailed: 'Couldn\'t create the game. Please try again.',
+  },
+  joinGameModal: {
+    heading: 'Join Game',
+    gameIdLabel: 'Game ID',
+    gameIdPlaceholder: 'Paste the game ID from your friend',
+    elementLabel: 'Your Element',
+    submit: 'Join Game',
+    cancel: 'Cancel',
+    errorNoGameId: 'Enter a game ID to continue.',
+    errorNoElement: 'Choose an element to continue.',
+    errorJoinFailed: 'Couldn\'t join that game. Check the ID and try again.',
   },
 } as const

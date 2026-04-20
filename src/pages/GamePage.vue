@@ -178,11 +178,17 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { gameContent } from '@/content'
 import { ELEMENT_COLOURS } from '@/types'
 import type { Element } from '@/types'
 import type { PieceType } from '@/types/game'
 import { useGameBoard } from '@/composables/useGameBoard'
+import { useGameStore } from '@/stores/useGameStore'
+
+const route = useRoute()
+const store = useGameStore()
 
 const {
   boardRows,
@@ -202,6 +208,27 @@ const {
   exitReplay,
   eventLabel,
 } = useGameBoard()
+
+onMounted(async () => {
+  const id = route.params.id as string | undefined
+  if (!id || id.startsWith('game-')) {
+    // No id or local-only game — board is already initialised by the caller
+    // (e.g. dev tooling or direct navigation without a real game id).
+    return
+  }
+
+  // Remote Supabase game
+  try {
+    await store.loadGame(id)
+    store.subscribeToUpdates()
+  } catch (e) {
+    console.error('[GamePage] Failed to load remote game:', e)
+  }
+})
+
+onUnmounted(() => {
+  store.unsubscribeFromUpdates()
+})
 
 // ── Tile helpers ─────────────────────────────────────────────────────────────
 
