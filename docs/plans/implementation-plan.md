@@ -20,8 +20,8 @@ The goal is to move from a designed prototype to a working async multiplayer gam
 | 5 | GamePage UI integration | `@frontend` `@backend` | `[x] done` |
 | 6 | Ability design + types | `@copy` `@backend` | `[x] done` |
 | 7 | Set Manager integration | `@backend` `@frontend` | `[x] done` |
-| 8 | Supabase setup + schema | `@backend` | `[ ] pending` |
-| 9 | gameService (Supabase) | `@backend` | `[ ] pending` |
+| 8 | Supabase setup + schema | `@backend` | `[x] done` |
+| 9 | gameService (Supabase) | `@backend` | `[x] done` |
 | 10 | Game store sync | `@backend` | `[ ] pending` |
 | 11 | GameMenuPage + creation | `@frontend` `@backend` | `[ ] pending` |
 | 12+ | Friends, Profile, Auth | all agents | `[ ] pending` |
@@ -173,7 +173,7 @@ The game engine is the critical path for everything else. Per `project-overrides
 
 ### Phase 8 — Supabase Setup + Schema
 
-> Status: `[ ] pending`
+> Status: `[x] done` — 2026-04-16
 
 **New files:** `src/lib/supabase.ts`, `.env.local` (not committed)
 
@@ -189,7 +189,7 @@ The game engine is the critical path for everything else. Per `project-overrides
 
 ### Phase 9 — Game Service (Supabase-backed)
 
-> Status: `[ ] pending`
+> Status: `[x] done` — 2026-04-20
 
 **File:** `src/services/gameService.ts`
 
