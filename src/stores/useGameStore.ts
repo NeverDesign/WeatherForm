@@ -1,8 +1,10 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import type { RealtimeChannel } from '@supabase/supabase-js'
 import type { GameState, GameEvent, Piece, PieceType, BoardState } from '@/types/game'
 import type { Element } from '@/types'
 import { gameReducer } from './gameReducer'
+import { gameService } from '@/services/gameService'
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -89,6 +91,15 @@ export const useGameStore = defineStore('game', () => {
   const replayState = ref<GameState | null>(null)
 
   /**
+   * Supabase game ID when in online mode. null = local-only (no remote sync).
+   * Set by loadGame; cleared by newGame.
+   */
+  const remoteGameId = ref<string | null>(null)
+
+  /** Active Realtime channel. Stored so it can be unsubscribed on cleanup. */
+  const realtimeChannel = ref<RealtimeChannel | null>(null)
+
+  /**
    * The single source of truth for all UI rendering.
    * Returns replayState during replay, gameState during live play.
    * Matches the `visibleState` pattern from project-overrides.md.
@@ -97,28 +108,37 @@ export const useGameStore = defineStore('game', () => {
     isReplay.value ? replayState.value : gameState.value,
   )
 
-  // ─── Actions ───────────────────────────────────────────────────────────────
+  // ─── Local actions ─────────────────────────────────────────────────────────
 
-  /** Start a new game between two elements. */
+  /** Start a new local-only game (no Supabase sync). */
   function newGame(p1Element: Element, p2Element: Element): void {
     const state = createGame(p1Element, p2Element)
     initialState.value = structuredClone(state)
     gameState.value = state
+    remoteGameId.value = null
     isReplay.value = false
     replayState.value = null
+    _cleanupChannel()
   }
 
   /**
-   * Apply a GameEvent to the live state.
-   * Calls the pure reducer and replaces the state ref.
-   *
-   * JSON round-trip strips the Vue reactive Proxy wrapper so the reducer's
-   * structuredClone receives a plain object (GameState is JSON-safe by design).
+   * Apply a GameEvent to the live state optimistically.
+   * When in online mode (remoteGameId is set), also pushes the event to
+   * Supabase in the background — fire-and-forget with console error on failure.
    */
   function dispatch(event: GameEvent): void {
     if (!gameState.value) return
+
+    // Optimistic local update — always synchronous
     const plain = JSON.parse(JSON.stringify(gameState.value)) as GameState
     gameState.value = gameReducer(plain, event)
+
+    // Remote sync when online
+    if (remoteGameId.value) {
+      gameService.pushEvent(remoteGameId.value, event).catch((err) => {
+        console.error('[gameStore] pushEvent failed:', err)
+      })
+    }
   }
 
   /**
@@ -149,15 +169,79 @@ export const useGameStore = defineStore('game', () => {
     replayState.value = null
   }
 
+  // ─── Online / Supabase actions ─────────────────────────────────────────────
+
+  /**
+   * Load an existing game from Supabase and seed the local store.
+   * Switches the store into online mode — subsequent dispatch calls will
+   * also push events to Supabase.
+   */
+  async function loadGame(id: string): Promise<void> {
+    const state = await gameService.getGame(id)
+
+    remoteGameId.value = id
+    gameState.value = state
+    // Reconstruct initial board for replay from the two elements
+    initialState.value = {
+      ...createGame(state.players.P1.element, state.players.P2.element),
+      id,
+    }
+    isReplay.value = false
+    replayState.value = null
+  }
+
+  /**
+   * Subscribe to Supabase Realtime updates for the current game.
+   * When the opponent pushes a move, the remote GameState replaces the
+   * local state (reconcile). This is safe because the remote snapshot is
+   * the authoritative post-reducer result of the opponent's event.
+   *
+   * Call this once after loadGame. Automatically tears down any previous
+   * channel before subscribing.
+   */
+  function subscribeToUpdates(): void {
+    if (!remoteGameId.value) return
+    _cleanupChannel()
+    realtimeChannel.value = gameService.subscribeToGame(
+      remoteGameId.value,
+      (remoteState) => {
+        // Reconcile: the incoming state is already reduced on the server side
+        gameState.value = remoteState
+      },
+    )
+  }
+
+  /** Unsubscribe from Realtime and clear the channel ref. */
+  function unsubscribeFromUpdates(): void {
+    _cleanupChannel()
+  }
+
+  // ─── Internal ──────────────────────────────────────────────────────────────
+
+  function _cleanupChannel(): void {
+    if (realtimeChannel.value) {
+      realtimeChannel.value.unsubscribe()
+      realtimeChannel.value = null
+    }
+  }
+
   return {
+    // State
     gameState,
     initialState,
     isReplay,
     replayState,
+    remoteGameId,
+    // Computed
     visibleState,
+    // Local actions
     newGame,
     dispatch,
     enterReplay,
     exitReplay,
+    // Online actions
+    loadGame,
+    subscribeToUpdates,
+    unsubscribeFromUpdates,
   }
 })
